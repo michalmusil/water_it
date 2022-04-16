@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/PlantsFragment">
+
+    <fragment
+        android:id="@+id/PlantsFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.PlantsFragment"
+        android:label="@string/plants_fragment_label"
+        tools:layout="@layout/fragment_plants">
+
+        <action
+            android:id="@+id/action_PlantsFragment_to_PlantDetailFragment"
+            app:destination="@id/PlantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/PlantDetailFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plantdetail.PlantDetailFragment"
+        android:label="@string/plant_detail_fragment_label"
+        tools:layout="@layout/fragment_plant_detail">
+
+        <action
+            android:id="@+id/action_PlantDetailFragment_to_PlantsFragment"
+            app:destination="@id/PlantsFragment" />
+    </fragment>
+</navigation>
