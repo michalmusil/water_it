@@ -10,4 +10,8 @@ class PlantsViewModel(private val repository: IPlantsLocalRepository): ViewModel
     fun getAll(): LiveData<MutableList<DbPlant>>{
         return repository.getAll()
     }
+
+    suspend fun addPlant(plant: DbPlant){
+        repository.insert(plant)
+    }
 }

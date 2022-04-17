@@ -21,6 +21,11 @@
         android:label="@string/plant_detail_fragment_label"
         tools:layout="@layout/fragment_plant_detail">
 
+        <argument
+            android:name="plantId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
+
         <action
             android:id="@+id/action_PlantDetailFragment_to_PlantsFragment"
             app:destination="@id/PlantsFragment" />

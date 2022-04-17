@@ -4,6 +4,7 @@ package cz.mendelu.xmusil5.waterit.ui.plants
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,7 @@ import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantsBinding
 import cz.mendelu.xmusil5.waterit.databinding.ListItemPlantBinding
+import kotlinx.coroutines.launch
 
 
 class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(PlantsViewModel::class) {
