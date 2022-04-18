@@ -2,9 +2,11 @@ package cz.mendelu.xmusil5.waterit.ui.plants
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -62,6 +64,11 @@ class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(Plan
 
         override fun onBindViewHolder(holder: PlantViewHolder, position: Int) {
             val bindedPlant = plantsList.get(position)
+
+            holder.binding.root.setOnClickListener(View.OnClickListener {
+                val directions = PlantsFragmentDirections.actionPlantsFragmentToPlantDetailFragment(bindedPlant.id!!)
+                findNavController().navigate(directions)
+            })
 
             holder.binding.plantName.text = bindedPlant.name
             holder.binding.plantSpecies.text = bindedPlant.species

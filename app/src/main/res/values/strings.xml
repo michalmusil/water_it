@@ -1,16 +1,27 @@
 <resources>
     <string name="app_name">Water.it</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="plants_fragment_label">Plants</string>
-    <string name="plant_detail_fragment_label">Plant detail</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!-- Plants list -->
+    <string name="plantsList_fragmentLabel">Plants</string>
+
     <string name="plantsList_topText">All of your plants</string>
+
+    <!-- Plant detail -->
+    <string name="plantDetail_fragmentLabel">Plant detail</string>
+
+    <string name="plantDetail_name">Name</string>
+    <string name="plantDetail_species">Species</string>
+    <string name="plantDetail_datePlanted">Date planted</string>
+    <string name="plantDetail_lastWatered">Last watered</string>
+    <string name="plantDetail_daysBetweenWatering">Days between watering</string>
+
+    <!-- Add plant -->
+    <string name="addPlant_fragmentLabel">Add plant</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

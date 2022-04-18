@@ -8,17 +8,24 @@
     <fragment
         android:id="@+id/PlantsFragment"
         android:name="cz.mendelu.xmusil5.waterit.ui.plants.PlantsFragment"
-        android:label="@string/plants_fragment_label"
+        android:label="@string/plantsList_fragmentLabel"
         tools:layout="@layout/fragment_plants">
 
         <action
             android:id="@+id/action_PlantsFragment_to_PlantDetailFragment"
             app:destination="@id/PlantDetailFragment" />
+
+        <action
+            android:id="@+id/action_PlantsFragment_to_AddPlantFragment"
+            app:destination="@id/AddPlantFragment" />
+
+
     </fragment>
+
     <fragment
         android:id="@+id/PlantDetailFragment"
         android:name="cz.mendelu.xmusil5.waterit.ui.plantdetail.PlantDetailFragment"
-        android:label="@string/plant_detail_fragment_label"
+        android:label="@string/plantDetail_fragmentLabel"
         tools:layout="@layout/fragment_plant_detail">
 
         <argument
@@ -29,5 +36,17 @@
         <action
             android:id="@+id/action_PlantDetailFragment_to_PlantsFragment"
             app:destination="@id/PlantsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddPlantFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.addplant.AddPlantFragment"
+        android:label="@string/addPlant_fragmentLabel"
+        tools:layout="@layout/fragment_add_plant">
+
+        <action
+            android:id="@+id/action_AddPlantFragment_to_PlantsFragment"
+            app:destination="@id/PlantsFragment" />
+
     </fragment>
 </navigation>
