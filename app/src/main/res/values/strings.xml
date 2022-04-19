@@ -1,23 +1,28 @@
 <resources>
     <string name="app_name">Water.it</string>
+    <string name="action_save">Save</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Plants attributes -->
+    <string name="plantAttrs_name">Name</string>
+    <string name="plantAttrs_species">Species</string>
+    <string name="plantAttrs_datePlanted">Date planted</string>
+    <string name="plantAttrs_lastWatered">Last watered</string>
+    <string name="plantAttrs_daysBetweenWatering">Days between watering</string>
+    <string name="plantAttrs_description">Description</string>
 
     <!-- Plants list -->
     <string name="plantsList_fragmentLabel">Plants</string>
-
     <string name="plantsList_topText">All of your plants</string>
 
     <!-- Plant detail -->
     <string name="plantDetail_fragmentLabel">Plant detail</string>
 
-    <string name="plantDetail_name">Name</string>
-    <string name="plantDetail_species">Species</string>
-    <string name="plantDetail_datePlanted">Date planted</string>
-    <string name="plantDetail_lastWatered">Last watered</string>
-    <string name="plantDetail_daysBetweenWatering">Days between watering</string>
-
     <!-- Add plant -->
+    <string name="addPlant_addPlantTitle">Add a new plant</string>
     <string name="addPlant_fragmentLabel">Add plant</string>
+    <string name="addPlant_error_mustEnterPlantName">You must enter a plant name</string>
+    <string name="addPlant_error_mustEnterPlantSpecies">You must enter a plant species</string>
 
 
 

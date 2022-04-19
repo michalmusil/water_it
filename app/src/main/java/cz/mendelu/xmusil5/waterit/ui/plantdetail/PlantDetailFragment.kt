@@ -28,12 +28,12 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
             lifecycleScope.launch {
                 plant = viewModel.findById(plantId)
 
-                binding.plantNameTitle.text = plant.name
                 binding.name.attributeText = plant.name
                 binding.species.attributeText = plant.species
                 plant.dateOfPlanting?.let { binding.datePlanted.attributeText = plant.dateOfPlanting.toString() }
                 plant.lastWatered?.let { binding.lastWatered.attributeText = plant.lastWatered.toString() }
                 plant.dateOfPlanting?.let { binding.daysBetweenWatering.attributeText = plant.daysBetweenWatering.toString() }
+                plant.description?.let { binding.description.attributeText = plant.description.toString() }
             }
         } else{
             // do an error fix to prevent this from EVER HAPPENING

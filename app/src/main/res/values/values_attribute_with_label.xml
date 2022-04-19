@@ -6,8 +6,10 @@
         <attr name="attributeText" format="string"/>
     </declare-styleable>
 
-    <declare-styleable name="ShortTextInputView">
+    <declare-styleable name="TextInputView">
         <attr name="hint" format="string"/>
+        <attr name="maxChars" format="integer"/>
+        <attr name="maxLines" format="integer"/>
     </declare-styleable>
 
 </resources>

@@ -10,18 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/plantNameTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="10dp"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/plantImageContainer"
             android:layout_width="match_parent"
@@ -32,7 +20,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/plantNameTitle"
+            app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedImageView"
             app:srcCompat="@drawable/ic_baseline_local_florist_24" />
 
@@ -40,7 +28,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantDetail_name"
+            app:labelText="@string/plantAttrs_name"
 
             app:layout_constraintTop_toBottomOf="@id/plantImageContainer" />
 
@@ -48,7 +36,7 @@
             android:id="@+id/species"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantDetail_species"
+            app:labelText="@string/plantAttrs_species"
 
             app:layout_constraintTop_toBottomOf="@id/name" />
 
@@ -56,7 +44,7 @@
             android:id="@+id/datePlanted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantDetail_datePlanted"
+            app:labelText="@string/plantAttrs_datePlanted"
 
             app:layout_constraintTop_toBottomOf="@id/species" />
 
@@ -64,7 +52,7 @@
             android:id="@+id/lastWatered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantDetail_lastWatered"
+            app:labelText="@string/plantAttrs_lastWatered"
 
             app:layout_constraintTop_toBottomOf="@id/datePlanted" />
 
@@ -72,9 +60,17 @@
             android:id="@+id/daysBetweenWatering"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantDetail_daysBetweenWatering"
+            app:labelText="@string/plantAttrs_daysBetweenWatering"
 
             app:layout_constraintTop_toBottomOf="@id/lastWatered" />
+
+        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelText="@string/plantAttrs_description"
+
+            app:layout_constraintTop_toBottomOf="@id/daysBetweenWatering" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

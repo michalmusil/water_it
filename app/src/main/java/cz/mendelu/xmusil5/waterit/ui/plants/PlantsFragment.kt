@@ -45,6 +45,11 @@ class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(Plan
             }
 
         })
+
+        binding.addPlantFab.setOnClickListener(View.OnClickListener {
+            val directions = PlantsFragmentDirections.actionPlantsFragmentToAddPlantFragment()
+            findNavController().navigate(directions)
+        })
     }
 
     override fun onActivityCreated() {
