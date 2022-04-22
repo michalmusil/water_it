@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/PlantsFragment">
+    app:startDestination="@id/RoomsListFragment">
 
     <fragment
         android:id="@+id/PlantsFragment"
-        android:name="cz.mendelu.xmusil5.waterit.ui.plants.PlantsFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsFragment"
         android:label="@string/plantsList_fragmentLabel"
         tools:layout="@layout/fragment_plants">
 
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/PlantDetailFragment"
-        android:name="cz.mendelu.xmusil5.waterit.ui.plantdetail.PlantDetailFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailFragment"
         android:label="@string/plantDetail_fragmentLabel"
         tools:layout="@layout/fragment_plant_detail">
 
@@ -40,13 +40,63 @@
 
     <fragment
         android:id="@+id/AddPlantFragment"
-        android:name="cz.mendelu.xmusil5.waterit.ui.addplant.AddPlantFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.addplant.AddPlantFragment"
         android:label="@string/addPlant_fragmentLabel"
         tools:layout="@layout/fragment_add_plant">
 
         <action
             android:id="@+id/action_AddPlantFragment_to_PlantsFragment"
             app:destination="@id/PlantsFragment" />
+
+    </fragment>
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/RoomsListFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.rooms.roomslist.RoomsListFragment"
+        android:label="@string/roomsList_fragmentLabel"
+        tools:layout="@layout/fragment_rooms_list">
+
+        <action
+            android:id="@+id/action_RoomsListFragment_to_RoomDetailFragment"
+            app:destination="@id/RoomDetailFragment" />
+
+        <action
+            android:id="@+id/action_RoomsListFragment_to_AddRoomFragment"
+            app:destination="@id/AddRoomFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/RoomDetailFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.rooms.roomdetail.RoomDetailFragment"
+        android:label="@string/roomDetail_fragmentLabel"
+        tools:layout="@layout/fragment_room_detail">
+
+        <argument
+            android:name="roomId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
+
+        <action
+            android:id="@+id/action_RoomDetailFragment_to_RoomsListFragment"
+            app:destination="@id/RoomsListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddRoomFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.rooms.addroom.AddRoomFragment"
+        android:label="@string/addRoom_fragmentLabel"
+        tools:layout="@layout/fragment_add_room">
+
+        <action
+            android:id="@+id/action_AddRoomFragment_to_RoomsListFragment"
+            app:destination="@id/RoomsListFragment" />
 
     </fragment>
 </navigation>

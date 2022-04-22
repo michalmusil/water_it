@@ -1,4 +1,4 @@
-package cz.mendelu.xmusil5.waterit.ui.plantdetail
+package cz.mendelu.xmusil5.waterit.ui.plants.plantdetail
 
 import androidx.lifecycle.ViewModel
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant

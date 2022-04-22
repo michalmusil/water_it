@@ -7,15 +7,20 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "rooms")
 data class DbRoom(
     @ColumnInfo(name = "name")
-    var name: String,
-    @ColumnInfo(name = "latitude")
-    var latitude: Double,
-    @ColumnInfo(name = "longitude")
-    var longitude: Double){
+    var name: String){
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Long? = null
+
+    @ColumnInfo(name = "picture")
+    var picture: ByteArray? = null
+
+    @ColumnInfo(name = "latitude")
+    var latitude: Double? = null
+
+    @ColumnInfo(name = "longitude")
+    var longitude: Double? = null
 
     @ColumnInfo(name = "description")
     var description: String? = null

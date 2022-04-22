@@ -1,4 +1,4 @@
-package cz.mendelu.xmusil5.waterit.ui.plants
+package cz.mendelu.xmusil5.waterit.ui.plants.plantsList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

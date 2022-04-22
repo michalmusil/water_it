@@ -14,8 +14,8 @@
             android:id="@+id/nameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hint="@string/plantAttrs_name"
-            app:maxChars="255"
+            app:hint="@string/roomAttrs_name"
+            app:maxChars="50"
             app:maxLines="1"
 
 
@@ -24,33 +24,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <cz.mendelu.xmusil5.waterit.views.TextInputView
-            android:id="@+id/speciesInput"
+            android:id="@+id/descriptionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hint="@string/plantAttrs_species"
-            app:maxChars="255"
-            app:maxLines="1"
+            app:hint="@string/roomAttrs_description"
+            app:maxChars="1000"
+            app:maxLines="10"
 
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameInput" />
 
-        <cz.mendelu.xmusil5.waterit.views.TextInputView
-            android:id="@+id/descriptionInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:hint="@string/plantAttrs_description"
-            app:maxChars="500"
-            app:maxLines="10"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/speciesInput" />
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/savePlantButton"
+            android:id="@+id/saveRoomButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/action_save"

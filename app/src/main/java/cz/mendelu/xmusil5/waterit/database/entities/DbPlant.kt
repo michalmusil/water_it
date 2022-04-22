@@ -4,12 +4,8 @@ import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import cz.mendelu.xmusil5.waterit.database.entities.converters.WateritTypeConverter
-import java.util.*
 
 @Entity(tableName = "plants")
-@TypeConverters(WateritTypeConverter::class)
 data class DbPlant(
     @ColumnInfo(name = "name")
     var name: String,
@@ -26,13 +22,13 @@ data class DbPlant(
 
 
     @ColumnInfo(name = "picture")
-    var picture: Bitmap? = null
+    var picture: ByteArray? = null
 
     @ColumnInfo(name = "dateOfPlanting")
-    var dateOfPlanting: Date? = null
+    var dateOfPlanting: Long? = null
 
     @ColumnInfo(name = "lastWatered")
-    var lastWatered: Date? = null
+    var lastWatered: Long? = null
 
     @ColumnInfo(name = "daysBetweenWatering")
     var daysBetweenWatering: Int? = null

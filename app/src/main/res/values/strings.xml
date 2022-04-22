@@ -13,18 +13,32 @@
 
     <!-- Plants list -->
     <string name="plantsList_fragmentLabel">Plants</string>
-    <string name="plantsList_topText">All of your plants</string>
 
     <!-- Plant detail -->
     <string name="plantDetail_fragmentLabel">Plant detail</string>
 
     <!-- Add plant -->
-    <string name="addPlant_addPlantTitle">Add a new plant</string>
     <string name="addPlant_fragmentLabel">Add plant</string>
     <string name="addPlant_error_mustEnterPlantName">You must enter a plant name</string>
     <string name="addPlant_error_mustEnterPlantSpecies">You must enter a plant species</string>
 
 
+    <!-- Rooms attributes -->
+    <string name="roomAttrs_name">Name</string>
+    <string name="roomAttrs_longitude">Longitude</string>
+    <string name="roomAttrs_latitude">Latitude</string>
+    <string name="roomAttrs_description">Description</string>
+
+
+    <!-- Rooms list -->
+    <string name="roomsList_fragmentLabel">Rooms</string>
+
+    <!-- Room detail -->
+    <string name="roomDetail_fragmentLabel">Room</string>
+
+    <!-- Add room -->
+    <string name="addRoom_fragmentLabel">Add room</string>
+    <string name="addRoom_error_mustEnterRoomName">You must enter a room name</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

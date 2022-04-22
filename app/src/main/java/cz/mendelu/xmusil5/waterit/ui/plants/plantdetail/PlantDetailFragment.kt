@@ -1,12 +1,7 @@
-package cz.mendelu.xmusil5.waterit.ui.plantdetail
+package cz.mendelu.xmusil5.waterit.ui.plants.plantdetail
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant

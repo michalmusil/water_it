@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/plantImageContainer"
+            android:id="@+id/roomImageContainer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="1:1"
@@ -22,47 +22,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:srcCompat="@drawable/ic_baseline_local_florist_24" />
+            app:srcCompat="@color/primaryColor" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_name"
+            app:labelText="@string/roomAttrs_name"
 
-            app:layout_constraintTop_toBottomOf="@id/plantImageContainer" />
+            app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/species"
+            android:id="@+id/longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_species"
+            app:labelText="@string/roomAttrs_longitude"
 
             app:layout_constraintTop_toBottomOf="@id/name" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/datePlanted"
+            android:id="@+id/latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_datePlanted"
+            app:labelText="@string/roomAttrs_latitude"
 
-            app:layout_constraintTop_toBottomOf="@id/species" />
-
-        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/lastWatered"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_lastWatered"
-
-            app:layout_constraintTop_toBottomOf="@id/datePlanted" />
-
-        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/daysBetweenWatering"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_daysBetweenWatering"
-
-            app:layout_constraintTop_toBottomOf="@id/lastWatered" />
+            app:layout_constraintTop_toBottomOf="@id/longitude" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
             android:id="@+id/description"
@@ -70,7 +54,7 @@
             android:layout_height="wrap_content"
             app:labelText="@string/plantAttrs_description"
 
-            app:layout_constraintTop_toBottomOf="@id/daysBetweenWatering" />
+            app:layout_constraintTop_toBottomOf="@id/latitude" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

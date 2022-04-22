@@ -1,8 +1,7 @@
-package cz.mendelu.xmusil5.waterit.ui.addplant
+package cz.mendelu.xmusil5.waterit.ui.plants.addplant
 
 import android.view.LayoutInflater
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import cz.mendelu.xmusil5.waterit.R

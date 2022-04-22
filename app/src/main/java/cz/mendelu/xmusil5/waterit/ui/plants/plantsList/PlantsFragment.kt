@@ -1,11 +1,10 @@
-package cz.mendelu.xmusil5.waterit.ui.plants
+package cz.mendelu.xmusil5.waterit.ui.plants.plantsList
 
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +13,7 @@ import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantsBinding
 import cz.mendelu.xmusil5.waterit.databinding.ListItemPlantBinding
-import kotlinx.coroutines.launch
+import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 
 
 class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(PlantsViewModel::class) {
@@ -78,7 +77,8 @@ class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(Plan
             holder.binding.plantName.text = bindedPlant.name
             holder.binding.plantSpecies.text = bindedPlant.species
             if(bindedPlant.picture != null) {
-                holder.binding.plantImageContainer.setImageBitmap(bindedPlant.picture)
+                holder.binding.plantImageContainer.setImageBitmap(
+                    PictureUtils.fromByteArrayToBitmap(bindedPlant.picture))
             }
         }
 
@@ -106,7 +106,7 @@ class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(Plan
             return oldList[oldItemPosition].name == newList[newItemPosition].name
                     && oldList[oldItemPosition].species == newList[newItemPosition].species
                     && oldList[oldItemPosition].roomId == newList[newItemPosition].roomId
-                    && oldList[oldItemPosition].picture == newList[newItemPosition].picture
+                    && oldList[oldItemPosition].picture.contentEquals(newList[newItemPosition].picture)
                     && oldList[oldItemPosition].dateOfPlanting == newList[newItemPosition].dateOfPlanting
                     && oldList[oldItemPosition].lastWatered == newList[newItemPosition].lastWatered
                     && oldList[oldItemPosition].daysBetweenWatering == newList[newItemPosition].daysBetweenWatering
