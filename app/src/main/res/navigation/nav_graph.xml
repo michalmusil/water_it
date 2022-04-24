@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/RoomsListFragment">
+    app:startDestination="@id/PlantsListFragment">
 
     <fragment
-        android:id="@+id/PlantsFragment"
-        android:name="cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsFragment"
+        android:id="@+id/PlantsListFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsListFragment"
         android:label="@string/plantsList_fragmentLabel"
-        tools:layout="@layout/fragment_plants">
+        tools:layout="@layout/fragment_plants_list">
 
         <action
             android:id="@+id/action_PlantsFragment_to_PlantDetailFragment"
@@ -35,7 +35,7 @@
 
         <action
             android:id="@+id/action_PlantDetailFragment_to_PlantsFragment"
-            app:destination="@id/PlantsFragment" />
+            app:destination="@id/PlantsListFragment" />
     </fragment>
 
     <fragment
@@ -46,7 +46,7 @@
 
         <action
             android:id="@+id/action_AddPlantFragment_to_PlantsFragment"
-            app:destination="@id/PlantsFragment" />
+            app:destination="@id/PlantsListFragment" />
 
     </fragment>
 
@@ -96,7 +96,8 @@
 
         <action
             android:id="@+id/action_AddRoomFragment_to_RoomsListFragment"
-            app:destination="@id/RoomsListFragment" />
+            app:destination="@id/RoomsListFragment"
+            app:popUpToInclusive="false" />
 
     </fragment>
 </navigation>

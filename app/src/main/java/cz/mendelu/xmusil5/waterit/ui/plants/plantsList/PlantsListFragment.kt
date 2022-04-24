@@ -11,19 +11,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
-import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantsBinding
+import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantsListBinding
 import cz.mendelu.xmusil5.waterit.databinding.ListItemPlantBinding
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 
 
-class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(PlantsViewModel::class) {
+class PlantsListFragment : BaseFragment<FragmentPlantsListBinding, PlantsListViewModel>(PlantsListViewModel::class) {
 
     private val plantsList: MutableList<DbPlant> = mutableListOf()
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var plantsAdapter: PlantsRecyclerViewAdapter
 
-    override val bindingInflater: (LayoutInflater) -> FragmentPlantsBinding
-        get() = FragmentPlantsBinding::inflate
+    override val bindingInflater: (LayoutInflater) -> FragmentPlantsListBinding
+        get() = FragmentPlantsListBinding::inflate
 
     override fun initViews() {
         this.layoutManager = LinearLayoutManager(requireContext())
@@ -46,7 +46,7 @@ class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(Plan
         })
 
         binding.addPlantFab.setOnClickListener(View.OnClickListener {
-            val directions = PlantsFragmentDirections.actionPlantsFragmentToAddPlantFragment()
+            val directions = PlantsListFragmentDirections.actionPlantsFragmentToAddPlantFragment()
             findNavController().navigate(directions)
         })
     }
@@ -70,7 +70,7 @@ class PlantsFragment : BaseFragment<FragmentPlantsBinding, PlantsViewModel>(Plan
             val bindedPlant = plantsList.get(position)
 
             holder.binding.root.setOnClickListener(View.OnClickListener {
-                val directions = PlantsFragmentDirections.actionPlantsFragmentToPlantDetailFragment(bindedPlant.id!!)
+                val directions = PlantsListFragmentDirections.actionPlantsFragmentToPlantDetailFragment(bindedPlant.id!!)
                 findNavController().navigate(directions)
             })
 

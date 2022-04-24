@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.database.repositories.plants.IPlantsLocalRepository
 
-class PlantsViewModel(private val repository: IPlantsLocalRepository): ViewModel() {
+class PlantsListViewModel(private val repository: IPlantsLocalRepository): ViewModel() {
 
     fun getAll(): LiveData<MutableList<DbPlant>>{
         return repository.getAll()
