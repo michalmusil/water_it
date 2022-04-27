@@ -25,6 +25,7 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
 
                 binding.name.attributeText = plant.name
                 binding.species.attributeText = plant.species
+                plant.roomId?.let { binding.room.attributeText = plant.roomId.toString() }
                 plant.dateOfPlanting?.let { binding.datePlanted.attributeText = plant.dateOfPlanting.toString() }
                 plant.lastWatered?.let { binding.lastWatered.attributeText = plant.lastWatered.toString() }
                 plant.dateOfPlanting?.let { binding.daysBetweenWatering.attributeText = plant.daysBetweenWatering.toString() }

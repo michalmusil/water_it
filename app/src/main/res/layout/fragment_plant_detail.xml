@@ -41,12 +41,20 @@
             app:layout_constraintTop_toBottomOf="@id/name" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
+            android:id="@+id/room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelText="@string/plantAttrs_room"
+
+            app:layout_constraintTop_toBottomOf="@id/species" />
+
+        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
             android:id="@+id/datePlanted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:labelText="@string/plantAttrs_datePlanted"
 
-            app:layout_constraintTop_toBottomOf="@id/species" />
+            app:layout_constraintTop_toBottomOf="@id/room" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
             android:id="@+id/lastWatered"

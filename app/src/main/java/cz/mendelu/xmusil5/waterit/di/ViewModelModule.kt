@@ -1,5 +1,6 @@
 package cz.mendelu.xmusil5.waterit.di
 
+import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragmentViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.addplant.AddPlantViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsListViewModel
@@ -31,5 +32,10 @@ val viewModelModule = module {
     }
     viewModel {
         AddRoomViewModel(get())
+    }
+
+    // Dialog fragments ViewModels
+    viewModel {
+        RoomsDialogFragmentViewModel(get())
     }
 }

@@ -6,6 +6,7 @@
     <!-- Plants attributes -->
     <string name="plantAttrs_name">Name</string>
     <string name="plantAttrs_species">Species</string>
+    <string name="plantAttrs_room">Room</string>
     <string name="plantAttrs_datePlanted">Date planted</string>
     <string name="plantAttrs_lastWatered">Last watered</string>
     <string name="plantAttrs_daysBetweenWatering">Days between watering</string>
@@ -19,6 +20,8 @@
 
     <!-- Add plant -->
     <string name="addPlant_fragmentLabel">Add plant</string>
+    <string name="addPlant_assignRoom">Assign room</string>
+
     <string name="addPlant_error_mustEnterPlantName">You must enter a plant name</string>
     <string name="addPlant_error_mustEnterPlantSpecies">You must enter a plant species</string>
 

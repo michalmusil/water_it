@@ -49,16 +49,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/speciesInput" />
 
+        <TextView
+            android:id="@+id/temporaryRoomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:layout_margin="16dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/descriptionInput"
+            app:layout_constraintStart_toEndOf="@id/assignRoomButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/assignRoomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/addPlant_assignRoom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionInput" />
+
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/savePlantButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/action_save"
             android:layout_marginTop="16dp"
 
+            android:text="@string/action_save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionInput" />
+            app:layout_constraintTop_toBottomOf="@+id/assignRoomButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

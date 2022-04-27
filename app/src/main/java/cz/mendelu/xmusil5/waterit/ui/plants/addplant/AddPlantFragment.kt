@@ -7,12 +7,15 @@ import androidx.navigation.fragment.findNavController
 import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
+import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.databinding.FragmentAddPlantBinding
+import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragment
 import kotlinx.coroutines.launch
 
 
 class AddPlantFragment : BaseFragment<FragmentAddPlantBinding, AddPlantViewModel>(AddPlantViewModel::class) {
 
+    private var selectedRoomId: Long = -1
 
     override val bindingInflater: (LayoutInflater) -> FragmentAddPlantBinding
         get() = FragmentAddPlantBinding::inflate
@@ -30,6 +33,7 @@ class AddPlantFragment : BaseFragment<FragmentAddPlantBinding, AddPlantViewModel
             } else{
                 val newPlant = DbPlant(plantName, plantSpecies)
                 newPlant.description = plantDescription
+                newPlant.roomId = if(selectedRoomId>=0) selectedRoomId else null
 
                 lifecycleScope.launch {
                     viewModel.addPlant(newPlant)
@@ -38,11 +42,23 @@ class AddPlantFragment : BaseFragment<FragmentAddPlantBinding, AddPlantViewModel
                 }
             }
         })
+
+        binding.assignRoomButton.setOnClickListener(View.OnClickListener {
+            // implements an onClickListener for when a room is selected
+            var dialog = RoomsDialogFragment(object : RoomsDialogFragment.RoomOnClickListener{
+                override fun onRoomClicked(room: DbRoom) {
+                    selectedRoomId = room.id!!
+                    binding.temporaryRoomName.text = room.name
+                }
+            })
+            dialog.show(requireActivity().supportFragmentManager, "rooms")
+        })
+
+
     }
 
     override fun onActivityCreated() {
 
     }
-
 
 }
