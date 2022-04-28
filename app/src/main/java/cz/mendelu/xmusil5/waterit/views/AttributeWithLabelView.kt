@@ -1,7 +1,6 @@
 package cz.mendelu.xmusil5.waterit.views
 
 import android.content.Context
-import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -40,7 +39,7 @@ class AttributeWithLabelView @JvmOverloads constructor(
 
     private fun loadAttributes(attrs: AttributeSet){
         val attributeValues = context.obtainStyledAttributes(attrs, R.styleable.AttributeWithLabelView)
-        val labelText: String? = attributeValues.getString(R.styleable.AttributeWithLabelView_labelText)
+        val labelText: String? = attributeValues.getString(R.styleable.AttributeWithLabelView_textLabel)
         val attributeText: String? = attributeValues.getString(R.styleable.AttributeWithLabelView_attributeText)
 
         if (labelText != null){

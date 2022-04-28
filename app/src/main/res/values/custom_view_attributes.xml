@@ -2,7 +2,7 @@
 <resources>
 
     <declare-styleable name="AttributeWithLabelView">
-        <attr name="labelText" format="string"/>
+        <attr name="textLabel" format="string"/>
         <attr name="attributeText" format="string"/>
     </declare-styleable>
 
@@ -10,6 +10,10 @@
         <attr name="hint" format="string"/>
         <attr name="maxChars" format="integer"/>
         <attr name="maxLines" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="DatePickerView">
+        <attr name="dateLabel" format="string"/>
     </declare-styleable>
 
 </resources>

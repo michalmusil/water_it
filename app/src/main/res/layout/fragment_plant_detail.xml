@@ -28,7 +28,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_name"
+            app:textLabel="@string/plantAttrs_name"
 
             app:layout_constraintTop_toBottomOf="@id/plantImageContainer" />
 
@@ -36,7 +36,7 @@
             android:id="@+id/species"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_species"
+            app:textLabel="@string/plantAttrs_species"
 
             app:layout_constraintTop_toBottomOf="@id/name" />
 
@@ -44,7 +44,7 @@
             android:id="@+id/room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_room"
+            app:textLabel="@string/plantAttrs_room"
 
             app:layout_constraintTop_toBottomOf="@id/species" />
 
@@ -52,7 +52,7 @@
             android:id="@+id/datePlanted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_datePlanted"
+            app:textLabel="@string/plantAttrs_datePlanted"
 
             app:layout_constraintTop_toBottomOf="@id/room" />
 
@@ -60,7 +60,7 @@
             android:id="@+id/lastWatered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_lastWatered"
+            app:textLabel="@string/plantAttrs_lastWatered"
 
             app:layout_constraintTop_toBottomOf="@id/datePlanted" />
 
@@ -68,7 +68,7 @@
             android:id="@+id/daysBetweenWatering"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_daysBetweenWatering"
+            app:textLabel="@string/plantAttrs_daysBetweenWatering"
 
             app:layout_constraintTop_toBottomOf="@id/lastWatered" />
 
@@ -76,7 +76,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_description"
+            app:textLabel="@string/plantAttrs_description"
 
             app:layout_constraintTop_toBottomOf="@id/daysBetweenWatering" />
 

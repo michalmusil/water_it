@@ -28,7 +28,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/roomAttrs_name"
+            app:textLabel="@string/roomAttrs_name"
 
             app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
 
@@ -36,7 +36,7 @@
             android:id="@+id/longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/roomAttrs_longitude"
+            app:textLabel="@string/roomAttrs_longitude"
 
             app:layout_constraintTop_toBottomOf="@id/name" />
 
@@ -44,7 +44,7 @@
             android:id="@+id/latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/roomAttrs_latitude"
+            app:textLabel="@string/roomAttrs_latitude"
 
             app:layout_constraintTop_toBottomOf="@id/longitude" />
 
@@ -52,7 +52,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelText="@string/plantAttrs_description"
+            app:textLabel="@string/plantAttrs_description"
 
             app:layout_constraintTop_toBottomOf="@id/latitude" />
 

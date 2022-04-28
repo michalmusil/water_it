@@ -25,5 +25,9 @@ class DateUtils {
             calendar.set(year, month, day)
             return calendar.timeInMillis
         }
+        fun getCurrentUnixTime(): Long{
+            val calendar = Calendar.getInstance()
+            return calendar.timeInMillis
+        }
     }
 }

@@ -6,6 +6,7 @@ import androidx.navigation.fragment.navArgs
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantDetailBinding
+import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import kotlinx.coroutines.launch
 
 
@@ -26,8 +27,9 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
                 binding.name.attributeText = plant.name
                 binding.species.attributeText = plant.species
                 plant.roomId?.let { binding.room.attributeText = plant.roomId.toString() }
-                plant.dateOfPlanting?.let { binding.datePlanted.attributeText = plant.dateOfPlanting.toString() }
-                plant.lastWatered?.let { binding.lastWatered.attributeText = plant.lastWatered.toString() }
+                plant.dateOfPlanting?.let { binding.datePlanted.attributeText = DateUtils.getDateString(plant.dateOfPlanting!!) }
+                plant.lastWatered?.let { binding.lastWatered.attributeText = DateUtils.getDateString(plant.lastWatered!!) }
+                plant.daysBetweenWatering?.let { binding.daysBetweenWatering.attributeText = plant.daysBetweenWatering.toString() }
                 plant.dateOfPlanting?.let { binding.daysBetweenWatering.attributeText = plant.daysBetweenWatering.toString() }
                 plant.description?.let { binding.description.attributeText = plant.description.toString() }
             }
