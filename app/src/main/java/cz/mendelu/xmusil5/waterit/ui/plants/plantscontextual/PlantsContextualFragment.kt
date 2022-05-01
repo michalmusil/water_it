@@ -2,6 +2,7 @@ package cz.mendelu.xmusil5.waterit.ui.plants.plantscontextual
 
 import android.view.LayoutInflater
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -26,6 +27,8 @@ class PlantsContextualFragment: BaseFragment<FragmentPlantsListBinding, PlantsCo
         lifecycleScope.launch {
             loadArgumentModels()
             if (viewModel.room != null){
+                changeActiomBarTitle("${viewModel.room!!.name!!}")
+
                 viewModel.layoutManager = LinearLayoutManager(requireContext())
                 viewModel.plantsAdapter = PlantsRecyclerViewAdapter(viewModel.plantsList, object: PlantsRecyclerViewAdapter.PlantsRecyclerViewEventListener{
                     override fun onItemClicked(plant: DbPlant) {
@@ -67,6 +70,10 @@ class PlantsContextualFragment: BaseFragment<FragmentPlantsListBinding, PlantsCo
         if (roomId >= 0){
             viewModel.room = viewModel.getRoomById(roomId)
         }
+    }
+
+    private fun changeActiomBarTitle(newTitle: String){
+        (activity as AppCompatActivity).supportActionBar?.title = newTitle
     }
 
 }

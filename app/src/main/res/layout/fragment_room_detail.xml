@@ -31,6 +31,7 @@
             android:text="@string/roomDetail_showPlants"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
+            app:backgroundTint="@color/secondaryColor"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
