@@ -4,6 +4,7 @@ import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragmentVi
 import cz.mendelu.xmusil5.waterit.ui.plants.addplant.AddPlantViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsListViewModel
+import cz.mendelu.xmusil5.waterit.ui.plants.plantscontextual.PlantsContextualViewModel
 import cz.mendelu.xmusil5.waterit.ui.rooms.addroom.AddRoomViewModel
 import cz.mendelu.xmusil5.waterit.ui.rooms.roomdetail.RoomDetailViewModel
 import cz.mendelu.xmusil5.waterit.ui.rooms.roomslist.RoomsListViewModel
@@ -20,6 +21,9 @@ val viewModelModule = module {
     }
     viewModel {
         AddPlantViewModel(get())
+    }
+    viewModel {
+        PlantsContextualViewModel(get(), get())
     }
 
 

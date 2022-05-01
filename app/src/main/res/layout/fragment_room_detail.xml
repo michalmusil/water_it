@@ -24,13 +24,24 @@
             app:shapeAppearanceOverlay="@style/roundedImageView"
             app:srcCompat="@color/primaryColor" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/showPlantsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/roomDetail_showPlants"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
+
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:textLabel="@string/roomAttrs_name"
 
-            app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
+            app:layout_constraintTop_toBottomOf="@id/showPlantsButton" />
 
         <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
             android:id="@+id/longitude"

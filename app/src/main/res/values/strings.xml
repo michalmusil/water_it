@@ -25,6 +25,9 @@
     <string name="addPlant_error_mustEnterPlantName">You must enter a plant name</string>
     <string name="addPlant_error_mustEnterPlantSpecies">You must enter a plant species</string>
 
+    <!-- Plants contextual -->
+    <string name="plantsContextual_fragmentLabel">Plants of room</string>
+
 
     <!-- Rooms attributes -->
     <string name="roomAttrs_name">Name</string>
@@ -38,6 +41,7 @@
 
     <!-- Room detail -->
     <string name="roomDetail_fragmentLabel">Room</string>
+    <string name="roomDetail_showPlants">Show plants</string>
 
     <!-- Add room -->
     <string name="addRoom_fragmentLabel">Add room</string>

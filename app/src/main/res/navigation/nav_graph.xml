@@ -19,7 +19,6 @@
             android:id="@+id/action_PlantsFragment_to_AddPlantFragment"
             app:destination="@id/AddPlantFragment" />
 
-
     </fragment>
 
     <fragment
@@ -47,6 +46,23 @@
         <action
             android:id="@+id/action_AddPlantFragment_to_PlantsFragment"
             app:destination="@id/PlantsListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/PlantsContextualFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.plantscontextual.PlantsContextualFragment"
+        android:label="@string/plantsContextual_fragmentLabel"
+        tools:layout="@layout/fragment_plants_list">
+
+        <argument
+            android:name="roomId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
+
+        <action
+            android:id="@+id/action_PlantsContextualFragment_to_PlantDetailFragment"
+            app:destination="@id/PlantDetailFragment" />
 
     </fragment>
 
@@ -85,6 +101,10 @@
         <action
             android:id="@+id/action_RoomDetailFragment_to_RoomsListFragment"
             app:destination="@id/RoomsListFragment" />
+
+        <action
+            android:id="@+id/action_RoomDetailFragment_to_PlantsContextualFragment"
+            app:destination="@id/PlantsContextualFragment" />
 
     </fragment>
 

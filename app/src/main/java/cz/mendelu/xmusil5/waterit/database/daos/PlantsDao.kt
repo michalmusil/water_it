@@ -10,6 +10,9 @@ interface PlantsDao {
     @Query("SELECT * FROM plants")
     fun getAll(): LiveData<MutableList<DbPlant>>
 
+    @Query("SELECT * FROM plants WHERE roomId = :roomId")
+    fun getAllWithRoomId(roomId: Long): LiveData<MutableList<DbPlant>>
+
     @Query("SELECT * FROM plants WHERE id = :id")
     suspend fun findById(id: Long): DbPlant
 

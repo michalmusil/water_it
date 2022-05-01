@@ -5,6 +5,9 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.database.repositories.rooms.IRoomsLocalRepository
 
 class RoomDetailViewModel(private val repository: IRoomsLocalRepository): ViewModel() {
+
+    lateinit var room: DbRoom
+
     suspend fun findById(id: Long): DbRoom{
         return repository.findById(id)
     }
