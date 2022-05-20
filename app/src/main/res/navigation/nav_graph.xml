@@ -16,8 +16,8 @@
             app:destination="@id/PlantDetailFragment" />
 
         <action
-            android:id="@+id/action_PlantsFragment_to_AddPlantFragment"
-            app:destination="@id/AddPlantFragment" />
+            android:id="@+id/action_PlantsFragment_to_AddOrEditPlantFragment"
+            app:destination="@id/AddOrEditPlantFragment" />
 
     </fragment>
 
@@ -38,13 +38,18 @@
     </fragment>
 
     <fragment
-        android:id="@+id/AddPlantFragment"
-        android:name="cz.mendelu.xmusil5.waterit.ui.plants.addplant.AddPlantFragment"
+        android:id="@+id/AddOrEditPlantFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.plants.addoreditplant.AddOrEditPlantFragment"
         android:label="@string/addPlant_fragmentLabel"
-        tools:layout="@layout/fragment_add_plant">
+        tools:layout="@layout/fragment_add_or_edit_plant">
+
+        <argument
+            android:name="plantId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
 
         <action
-            android:id="@+id/action_AddPlantFragment_to_PlantsFragment"
+            android:id="@+id/action_AddOrEditPlantFragment_to_PlantsFragment"
             app:destination="@id/PlantsListFragment" />
 
     </fragment>
@@ -82,8 +87,8 @@
             app:destination="@id/RoomDetailFragment" />
 
         <action
-            android:id="@+id/action_RoomsListFragment_to_AddRoomFragment"
-            app:destination="@id/AddRoomFragment" />
+            android:id="@+id/action_RoomsListFragment_to_AddOrEditRoomFragment"
+            app:destination="@id/AddOrEditRoomFragment" />
 
     </fragment>
 
@@ -109,13 +114,18 @@
     </fragment>
 
     <fragment
-        android:id="@+id/AddRoomFragment"
-        android:name="cz.mendelu.xmusil5.waterit.ui.rooms.addroom.AddRoomFragment"
+        android:id="@+id/AddOrEditRoomFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.rooms.addoreditroom.AddOrEditRoomFragment"
         android:label="@string/addRoom_fragmentLabel"
-        tools:layout="@layout/fragment_add_room">
+        tools:layout="@layout/fragment_add_or_edit_room">
+
+        <argument
+            android:name="roomId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
 
         <action
-            android:id="@+id/action_AddRoomFragment_to_RoomsListFragment"
+            android:id="@+id/action_AddOrEditRoomFragment_to_RoomsListFragment"
             app:destination="@id/RoomsListFragment"
             app:popUpToInclusive="false" />
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,36 +18,31 @@ import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 class RoomsListFragment : BaseFragment<FragmentRoomsListBinding, RoomsListViewModel>(
     RoomsListViewModel::class) {
 
-    private val roomsList: MutableList<DbRoom> = mutableListOf()
-    private lateinit var layoutManager: GridLayoutManager
-    private lateinit var roomsAdapter: RoomsRecyclerViewAdapter
-
-
     override val bindingInflater: (LayoutInflater) -> FragmentRoomsListBinding
         get() = FragmentRoomsListBinding::inflate
 
     override fun initViews() {
-        this.layoutManager = GridLayoutManager(requireContext(), 3)
-        this.roomsAdapter = RoomsRecyclerViewAdapter()
+        viewModel.layoutManager = GridLayoutManager(requireContext(), 3)
+        viewModel.roomsAdapter = RoomsRecyclerViewAdapter()
 
         val rw = this.binding.roomsRecyclerView
-        rw.layoutManager = this.layoutManager
-        rw.adapter = this.roomsAdapter
+        rw.layoutManager = viewModel.layoutManager
+        rw.adapter = viewModel.roomsAdapter
         this.viewModel.getAll().observe(viewLifecycleOwner, object: Observer<MutableList<DbRoom>>{
             override fun onChanged(t: MutableList<DbRoom>?) {
                 //updating views in recyclerview
-                val callback = RoomsDiffUtils(roomsList, t!!)
+                val callback = RoomsDiffUtils(viewModel.roomsList, t!!)
                 val result = DiffUtil.calculateDiff(callback)
-                result.dispatchUpdatesTo(roomsAdapter)
+                result.dispatchUpdatesTo(viewModel.roomsAdapter)
 
-                roomsList.clear()
-                roomsList.addAll(t!!)
+                viewModel.roomsList.clear()
+                viewModel.roomsList.addAll(t!!)
             }
 
         })
 
         binding.addRoomFab.setOnClickListener(View.OnClickListener {
-            val directions = RoomsListFragmentDirections.actionRoomsListFragmentToAddRoomFragment()
+            val directions = RoomsListFragmentDirections.actionRoomsListFragmentToAddOrEditRoomFragment()
             findNavController().navigate(directions)
         })
     }
@@ -67,7 +63,7 @@ class RoomsListFragment : BaseFragment<FragmentRoomsListBinding, RoomsListViewMo
         }
 
         override fun onBindViewHolder(holder: RoomViewHolder, position: Int) {
-            val bindedRoom = roomsList.get(position)
+            val bindedRoom = viewModel.roomsList.get(position)
 
             holder.binding.root.setOnClickListener(View.OnClickListener {
                 val directions = RoomsListFragmentDirections.actionRoomsListFragmentToRoomDetailFragment(bindedRoom.id!!)
@@ -82,7 +78,7 @@ class RoomsListFragment : BaseFragment<FragmentRoomsListBinding, RoomsListViewMo
         }
 
         override fun getItemCount(): Int {
-            return roomsList.size
+            return viewModel.roomsList.size
         }
     }
 

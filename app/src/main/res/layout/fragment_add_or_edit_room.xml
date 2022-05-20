@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.plants.addplant.AddPlantFragment">
+    tools:context=".ui.plants.addoreditplant.AddOrEditPlantFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,60 +24,30 @@
                 android:id="@+id/nameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hint="@string/plantAttrs_name"
-                app:maxChars="255"
-                app:maxLines="1" />
-
-            <cz.mendelu.xmusil5.waterit.views.TextInputView
-                android:id="@+id/speciesInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:hint="@string/plantAttrs_species"
-                app:maxChars="255"
+                app:hint="@string/roomAttrs_name"
+                app:maxChars="50"
                 app:maxLines="1" />
 
             <cz.mendelu.xmusil5.waterit.views.TextInputView
                 android:id="@+id/descriptionInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hint="@string/plantAttrs_description"
-                app:maxChars="500"
+                app:hint="@string/roomAttrs_description"
+                app:maxChars="1000"
                 app:maxLines="10" />
-
-            <cz.mendelu.xmusil5.waterit.views.DatePickerView
-                android:id="@+id/dateOfPlanting"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:dateLabel="@string/plantAttrs_datePlanted" />
-
-
-            <TextView
-                android:id="@+id/temporaryRoomName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textSize="30sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/assignRoomButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/secondaryColor"
-                android:text="@string/addPlant_assignRoom" />
 
         </LinearLayout>
 
 
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/savePlantButton"
+            android:id="@+id/saveRoomButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:backgroundTint="@color/secondaryColor"
-            android:textSize="30sp"
             android:text="@string/action_save"
+            android:textSize="30sp"
+            android:layout_marginTop="36dp"
+            app:backgroundTint="@color/secondaryColor"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

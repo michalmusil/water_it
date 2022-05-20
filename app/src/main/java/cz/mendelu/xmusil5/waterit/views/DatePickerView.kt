@@ -26,7 +26,7 @@ class DatePickerView @JvmOverloads constructor(
             binding.label.setText(text)
         }
 
-    private var datePickText: String
+    var datePickText: String
         get() = binding.datePickTextView.text.toString()
         set(text) {
             binding.datePickTextView.setText(text)

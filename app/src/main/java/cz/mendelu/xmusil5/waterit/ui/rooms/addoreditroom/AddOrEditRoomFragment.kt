@@ -1,34 +1,46 @@
-package cz.mendelu.xmusil5.waterit.ui.rooms.addroom
+package cz.mendelu.xmusil5.waterit.ui.rooms.addoreditroom
 
-import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
-import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
-import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
-import cz.mendelu.xmusil5.waterit.databinding.FragmentAddPlantBinding
-import cz.mendelu.xmusil5.waterit.databinding.FragmentAddRoomBinding
-import cz.mendelu.xmusil5.waterit.ui.plants.addplant.AddPlantFragmentDirections
+import cz.mendelu.xmusil5.waterit.databinding.FragmentAddOrEditRoomBinding
 import kotlinx.coroutines.launch
 
-class AddRoomFragment : BaseFragment<FragmentAddRoomBinding, AddRoomViewModel>(AddRoomViewModel::class) {
+class AddOrEditRoomFragment : BaseFragment<FragmentAddOrEditRoomBinding, AddOrEditRoomViewModel>(AddOrEditRoomViewModel::class) {
+    val args: AddOrEditRoomFragmentArgs by navArgs()
 
-    override val bindingInflater: (LayoutInflater) -> FragmentAddRoomBinding
-        get() = FragmentAddRoomBinding::inflate
+    override val bindingInflater: (LayoutInflater) -> FragmentAddOrEditRoomBinding
+        get() = FragmentAddOrEditRoomBinding::inflate
 
     override fun initViews() {
         setInteractionListeners()
         setOnSaveAction()
+
+        viewModel.roomId = args.roomId
+        if (viewModel.roomId >= 0) {
+            lifecycleScope.launch {
+                viewModel.fetchRoom()
+            }.invokeOnCompletion {
+                fillLayout()
+            }
+        } else{
+            fillLayout()
+        }
     }
 
     override fun onActivityCreated() {
+    }
+
+    private fun fillLayout(){
+        binding.nameInput.text = viewModel.room.name
+
+        viewModel.room.description?.let { binding.descriptionInput.text = viewModel.room.description!! }
     }
 
     private fun setOnSaveAction(){
@@ -39,7 +51,7 @@ class AddRoomFragment : BaseFragment<FragmentAddRoomBinding, AddRoomViewModel>(A
                 lifecycleScope.launch {
                     viewModel.saveRoom()
                 }.invokeOnCompletion {
-                    val directions = AddRoomFragmentDirections.actionAddRoomFragmentToRoomsListFragment()
+                    val directions = AddOrEditRoomFragmentDirections.actionAddOrEditRoomFragmentToRoomsListFragment()
                     findNavController().navigate(directions)
                 }
             }

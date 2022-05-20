@@ -45,7 +45,7 @@ class PlantsListFragment : BaseFragment<FragmentPlantsListBinding, PlantsListVie
         })
 
         binding.addPlantFab.setOnClickListener(View.OnClickListener {
-            val directions = PlantsListFragmentDirections.actionPlantsFragmentToAddPlantFragment()
+            val directions = PlantsListFragmentDirections.actionPlantsFragmentToAddOrEditPlantFragment()
             findNavController().navigate(directions)
         })
     }
