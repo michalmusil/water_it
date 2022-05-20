@@ -77,7 +77,7 @@ class DatePickerView @JvmOverloads constructor(
         labelText?.let { this.labelText = labelText }
     }
 
-    public fun setOnDateChangedListener(onDateChangedListener: CustomOnDateChangedListener){
+    fun setOnDateChangedListener(onDateChangedListener: CustomOnDateChangedListener){
         this.onDateChangedListener = onDateChangedListener
     }
 

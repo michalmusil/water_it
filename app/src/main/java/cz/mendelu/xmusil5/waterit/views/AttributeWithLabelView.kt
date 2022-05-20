@@ -51,10 +51,4 @@ class AttributeWithLabelView @JvmOverloads constructor(
 
         attributeValues.recycle()
     }
-
-    /*
-    fun addTextChangeListener(watcher: TextWatcher){
-        binding.textInputEditText.addTextChangedListener(watcher)
-    }
-     */
 }

@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
-import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantDetailBinding
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import kotlinx.coroutines.launch
@@ -13,25 +12,18 @@ import kotlinx.coroutines.launch
 class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetailViewModel>(PlantDetailViewModel::class) {
 
     private val args: PlantDetailFragmentArgs by navArgs()
-    private lateinit var plant: DbPlant
+
 
     override val bindingInflater: (LayoutInflater) -> FragmentPlantDetailBinding
         get() = FragmentPlantDetailBinding::inflate
 
     override fun initViews() {
-        val plantId = this.args.plantId
-        if (plantId>=0){
+        viewModel.plantId = this.args.plantId
+        if (viewModel.plantId>=0){
             lifecycleScope.launch {
-                plant = viewModel.findById(plantId)
-
-                binding.name.attributeText = plant.name
-                binding.species.attributeText = plant.species
-                plant.roomId?.let { binding.room.attributeText = plant.roomId.toString() }
-                plant.dateOfPlanting?.let { binding.datePlanted.attributeText = DateUtils.getDateString(plant.dateOfPlanting!!) }
-                plant.lastWatered?.let { binding.lastWatered.attributeText = DateUtils.getDateString(plant.lastWatered!!) }
-                plant.daysBetweenWatering?.let { binding.daysBetweenWatering.attributeText = plant.daysBetweenWatering.toString() }
-                plant.dateOfPlanting?.let { binding.daysBetweenWatering.attributeText = plant.daysBetweenWatering.toString() }
-                plant.description?.let { binding.description.attributeText = plant.description.toString() }
+                viewModel.fetchPlant()
+            }.invokeOnCompletion {
+                fillLayout()
             }
         } else{
             // do an error fix to prevent this from EVER HAPPENING
@@ -43,5 +35,14 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
 
     }
 
+    private fun fillLayout(){
+        binding.name.attributeText = viewModel.plant.name
+        binding.species.attributeText = viewModel.plant.species
+        viewModel.plant.roomId?.let { binding.room.attributeText = viewModel.plant.roomId.toString() }
+        viewModel.plant.dateOfPlanting?.let { binding.datePlanted.attributeText = DateUtils.getDateString(viewModel.plant.dateOfPlanting!!) }
+        viewModel.plant.lastWatered?.let { binding.lastWatered.attributeText = DateUtils.getDateString(viewModel.plant.lastWatered!!) }
+        viewModel.plant.daysBetweenWatering?.let { binding.daysBetweenWatering.attributeText = viewModel.plant.daysBetweenWatering.toString() }
+        viewModel.plant.description?.let { binding.description.attributeText = viewModel.plant.description.toString() }
+    }
 
 }
