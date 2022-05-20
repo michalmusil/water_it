@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/roomImageContainer"
@@ -36,38 +36,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
 
-        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/name"
+        <LinearLayout
+            android:id="@+id/values"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:textLabel="@string/roomAttrs_name"
+            android:orientation="vertical"
 
-            app:layout_constraintTop_toBottomOf="@id/showPlantsButton" />
+            app:layout_constraintTop_toBottomOf="@id/showPlantsButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/longitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:textLabel="@string/roomAttrs_longitude"
+            <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:textLabel="@string/roomAttrs_name" />
 
-            app:layout_constraintTop_toBottomOf="@id/name" />
+            <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
+                android:id="@+id/longitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:textLabel="@string/roomAttrs_longitude" />
 
-        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/latitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:textLabel="@string/roomAttrs_latitude"
+            <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
+                android:id="@+id/latitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:textLabel="@string/roomAttrs_latitude" />
 
-            app:layout_constraintTop_toBottomOf="@id/longitude" />
+            <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:textLabel="@string/plantAttrs_description" />
 
-        <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:textLabel="@string/plantAttrs_description"
-
-            app:layout_constraintTop_toBottomOf="@id/latitude" />
-
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,8 @@
 package cz.mendelu.xmusil5.waterit.ui.rooms.addroom
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,18 +24,21 @@ class AddRoomFragment : BaseFragment<FragmentAddRoomBinding, AddRoomViewModel>(A
         get() = FragmentAddRoomBinding::inflate
 
     override fun initViews() {
-        binding.saveRoomButton.setOnClickListener(View.OnClickListener {
-            val roomName = binding.nameInput.text
-            val roomDescription = binding.descriptionInput.text
+        setInteractionListeners()
+        setOnSaveAction()
+    }
 
-            if (roomName.isBlank()){
+    override fun onActivityCreated() {
+    }
+
+    private fun setOnSaveAction(){
+        binding.saveRoomButton.setOnClickListener(View.OnClickListener {
+            if (binding.nameInput.text.isBlank()){
                 binding.nameInput.setError(getString(R.string.addRoom_error_mustEnterRoomName))
             } else{
-                val newRoom = DbRoom(roomName)
-                newRoom.description = roomDescription
-
                 lifecycleScope.launch {
-                    viewModel.addRoom(newRoom)
+                    viewModel.saveRoom()
+                }.invokeOnCompletion {
                     val directions = AddRoomFragmentDirections.actionAddRoomFragmentToRoomsListFragment()
                     findNavController().navigate(directions)
                 }
@@ -41,7 +46,24 @@ class AddRoomFragment : BaseFragment<FragmentAddRoomBinding, AddRoomViewModel>(A
         })
     }
 
-    override fun onActivityCreated() {
-
+    private fun setInteractionListeners(){
+        binding.nameInput.addTextChangeListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun afterTextChanged(text: Editable?) {
+                viewModel.room.name = text.toString()
+            }
+        })
+        binding.descriptionInput.addTextChangeListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun afterTextChanged(text: Editable?) {
+                viewModel.room.description = text.toString()
+            }
+        })
     }
 }

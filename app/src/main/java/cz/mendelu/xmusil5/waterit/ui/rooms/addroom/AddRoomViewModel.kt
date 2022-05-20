@@ -5,7 +5,15 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.database.repositories.rooms.IRoomsLocalRepository
 
 class AddRoomViewModel(private val repository: IRoomsLocalRepository): ViewModel() {
-    suspend fun addRoom(room: DbRoom): Long{
-        return repository.insert(room)
+
+    var roomId: Long? = null
+    var room: DbRoom = DbRoom("")
+
+    suspend fun saveRoom(){
+        if (roomId == null){
+            repository.insert(room)
+        } else{
+            repository.update(room)
+        }
     }
 }

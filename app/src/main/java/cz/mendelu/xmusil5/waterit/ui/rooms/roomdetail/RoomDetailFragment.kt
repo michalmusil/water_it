@@ -18,29 +18,36 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
         get() = FragmentRoomDetailBinding::inflate
 
     override fun initViews() {
-        val roomId = this.args.roomId
-        if (roomId>=0){
+        viewModel.roomId = this.args.roomId
+        if (viewModel.roomId>=0){
             lifecycleScope.launch {
-                viewModel.room = viewModel.findById(roomId)
-
-                binding.name.attributeText = viewModel.room.name
-                viewModel.room.longitude?.let { binding.longitude.attributeText = viewModel.room.longitude.toString() }
-                viewModel.room.latitude?.let { binding.latitude.attributeText = viewModel.room.latitude.toString() }
-                viewModel.room.description?.let { binding.description.attributeText = viewModel.room.description.toString() }
+                viewModel.fetchRoom()
+            }.invokeOnCompletion {
+                fillLayout()
+                setInteractionListeners()
             }
         } else{
             // do an error fix to prevent this from EVER HAPPENING
             //probably just go back
         }
 
-        binding.showPlantsButton.setOnClickListener(View.OnClickListener {
-            val directions = RoomDetailFragmentDirections.actionRoomDetailFragmentToPlantsContextualFragment(roomId)
-            findNavController().navigate(directions)
-        })
+
     }
 
     override fun onActivityCreated() {
-
     }
 
+    private fun fillLayout(){
+        binding.name.attributeText = viewModel.room.name
+        viewModel.room.longitude?.let { binding.longitude.attributeText = viewModel.room.longitude.toString() }
+        viewModel.room.latitude?.let { binding.latitude.attributeText = viewModel.room.latitude.toString() }
+        viewModel.room.description?.let { binding.description.attributeText = viewModel.room.description.toString() }
+    }
+
+    private fun setInteractionListeners(){
+        binding.showPlantsButton.setOnClickListener(View.OnClickListener {
+            val directions = RoomDetailFragmentDirections.actionRoomDetailFragmentToPlantsContextualFragment(viewModel.roomId)
+            findNavController().navigate(directions)
+        })
+    }
 }

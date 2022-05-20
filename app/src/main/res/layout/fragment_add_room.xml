@@ -8,33 +8,37 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <cz.mendelu.xmusil5.waterit.views.TextInputView
-            android:id="@+id/nameInput"
+        <LinearLayout
+            android:id="@+id/inputs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hint="@string/roomAttrs_name"
-            app:maxChars="50"
-            app:maxLines="1"
+            android:orientation="vertical"
 
-
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <cz.mendelu.xmusil5.waterit.views.TextInputView
-            android:id="@+id/descriptionInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:hint="@string/roomAttrs_description"
-            app:maxChars="1000"
-            app:maxLines="10"
+            <cz.mendelu.xmusil5.waterit.views.TextInputView
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hint="@string/roomAttrs_name"
+                app:maxChars="50"
+                app:maxLines="1" />
+
+            <cz.mendelu.xmusil5.waterit.views.TextInputView
+                android:id="@+id/descriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hint="@string/roomAttrs_description"
+                app:maxChars="1000"
+                app:maxLines="10" />
+
+        </LinearLayout>
 
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameInput" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveRoomButton"
@@ -47,7 +51,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionInput" />
+            app:layout_constraintTop_toBottomOf="@+id/inputs" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
