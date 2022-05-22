@@ -16,4 +16,14 @@
         <attr name="dateLabel" format="string"/>
     </declare-styleable>
 
+    <declare-styleable name="CustomInputView">
+        <attr name="customLabel" format="string"/>
+        <attr name="customImage" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="ImagePickView">
+        <attr name="imagePickButtonText" format="string"/>
+        <attr name="imagePickInitialPicture" format="reference"/>
+    </declare-styleable>
+
 </resources>

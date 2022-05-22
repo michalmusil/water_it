@@ -3,6 +3,11 @@
     <string name="action_save">Save</string>
     <string name="action_settings">Settings</string>
 
+    <!-- General -->
+    <string name="image">Image</string>
+    <string name="pickImage">Pick an image</string>
+
+
     <!-- Plants attributes -->
     <string name="plantAttrs_name">Name</string>
     <string name="plantAttrs_species">Species</string>

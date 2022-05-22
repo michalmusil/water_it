@@ -1,5 +1,6 @@
 package cz.mendelu.xmusil5.waterit.ui.plants.addoreditplant
 
+import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -46,7 +47,7 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
         binding.nameInput.text = viewModel.plantWithRoom.plant.name
         binding.speciesInput.text = viewModel.plantWithRoom.plant.species
 
-        viewModel.plantWithRoom.room?.name?.let { binding.temporaryRoomName.text = viewModel.plantWithRoom.room!!.name }
+        viewModel.plantWithRoom.room?.name?.let { binding.room.value = viewModel.plantWithRoom.room!!.name }
         viewModel.plantWithRoom.plant.dateOfPlanting?.let { binding.dateOfPlanting.datePickText = DateUtils.getDateString(viewModel.plantWithRoom.plant.dateOfPlanting!!) }
         viewModel.plantWithRoom.plant.description?.let { binding.descriptionInput.text = viewModel.plantWithRoom.plant.description!! }
     }
@@ -104,17 +105,28 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             }
         })
 
-        binding.assignRoomButton.setOnClickListener(View.OnClickListener {
-            // implements an onClickListener for when a room is selected
+        binding.room.setRootOnClickListener(View.OnClickListener {
             var dialog = RoomsDialogFragment(object : RoomsDialogFragment.RoomOnClickListener{
                 override fun onRoomClicked(room: DbRoom) {
                     viewModel.plantWithRoom.room = room
                     viewModel.plantWithRoom.plant.roomId = room.id
-                    binding.temporaryRoomName.text = room.name
+                    binding.room.value = room.name
                 }
             })
             dialog.show(requireActivity().supportFragmentManager, "rooms")
         })
+
+        binding.room.setOnCancelButtonListener(View.OnClickListener {
+            viewModel.plantWithRoom.room = null
+            viewModel.plantWithRoom.plant.roomId = null
+            binding.room.value = ""
+        })
+
+        binding.imagePicker.setOnPickImageButtonListener(View.OnClickListener {
+
+        })
     }
+
+
 
 }

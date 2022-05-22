@@ -20,6 +20,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
+            <cz.mendelu.xmusil5.waterit.views.ImagePickView
+                android:id="@+id/imagePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:imagePickButtonText="@string/pickImage"
+                app:imagePickInitialPicture="@drawable/ic_baseline_local_florist_24"/>
+
             <cz.mendelu.xmusil5.waterit.views.TextInputView
                 android:id="@+id/nameInput"
                 android:layout_width="match_parent"
@@ -51,21 +58,12 @@
                 app:dateLabel="@string/plantAttrs_datePlanted" />
 
 
-            <TextView
-                android:id="@+id/temporaryRoomName"
-                android:layout_width="wrap_content"
+            <cz.mendelu.xmusil5.waterit.views.CustomInputView
+                android:id="@+id/room"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textSize="30sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/assignRoomButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/secondaryColor"
-                android:text="@string/addPlant_assignRoom" />
+                app:customLabel="@string/plantAttrs_room"
+                app:customImage="@drawable/ic_baseline_meeting_room_24"/>
 
         </LinearLayout>
 
