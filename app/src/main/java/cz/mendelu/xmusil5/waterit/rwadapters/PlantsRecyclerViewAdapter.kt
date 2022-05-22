@@ -1,16 +1,19 @@
 package cz.mendelu.xmusil5.waterit.rwadapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.ListItemPlantBinding
-import cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsListFragmentDirections
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 
 class PlantsRecyclerViewAdapter(
+    private val context: Context,
     private val plantsList: MutableList<DbPlant>,
     private val eventListener: PlantsRecyclerViewEventListener): RecyclerView.Adapter<PlantsRecyclerViewAdapter.PlantViewHolder>() {
 
@@ -40,6 +43,9 @@ class PlantsRecyclerViewAdapter(
             holder.binding.plantImageContainer.setImageBitmap(
                 PictureUtils.fromByteArrayToBitmap(bindedPlant.picture)
             )
+        } else{
+            holder.binding.plantImageContainer.setImageDrawable(
+                ContextCompat.getDrawable(context, R.drawable.ic_baseline_local_florist_24))
         }
     }
 

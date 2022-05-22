@@ -50,7 +50,12 @@ class ImagePickView @JvmOverloads constructor(
         attributeValues.recycle()
     }
 
-    fun setOnPickImageButtonListener(listener: View.OnClickListener){
+    fun setOnPickImageListener(listener: View.OnClickListener){
         binding.pickImageButton.setOnClickListener(listener)
+        binding.imageContainer.setOnClickListener(listener)
+    }
+
+    fun setOnCancelButtonClickListener(listener: View.OnClickListener){
+        binding.cancelButton.setOnClickListener(listener)
     }
 }

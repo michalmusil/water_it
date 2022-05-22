@@ -30,7 +30,7 @@ class PlantsContextualFragment: BaseFragment<FragmentPlantsListBinding, PlantsCo
                 changeActiomBarTitle("${viewModel.room!!.name!!}")
 
                 viewModel.layoutManager = LinearLayoutManager(requireContext())
-                viewModel.plantsAdapter = PlantsRecyclerViewAdapter(viewModel.plantsList, object: PlantsRecyclerViewAdapter.PlantsRecyclerViewEventListener{
+                viewModel.plantsAdapter = PlantsRecyclerViewAdapter(requireContext(), viewModel.plantsList, object: PlantsRecyclerViewAdapter.PlantsRecyclerViewEventListener{
                     override fun onItemClicked(plant: DbPlant) {
                         val directions = PlantsContextualFragmentDirections.actionPlantsContextualFragmentToPlantDetailFragment(plant.id!!)
                         findNavController().navigate(directions)

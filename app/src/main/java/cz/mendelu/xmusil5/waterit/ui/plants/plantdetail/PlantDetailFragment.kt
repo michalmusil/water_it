@@ -1,11 +1,15 @@
 package cz.mendelu.xmusil5.waterit.ui.plants.plantdetail
 
+import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantDetailBinding
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
+import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 import kotlinx.coroutines.launch
 
 
@@ -43,6 +47,19 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
         viewModel.plant.lastWatered?.let { binding.lastWatered.attributeText = DateUtils.getDateString(viewModel.plant.lastWatered!!) }
         viewModel.plant.daysBetweenWatering?.let { binding.daysBetweenWatering.attributeText = viewModel.plant.daysBetweenWatering.toString() }
         viewModel.plant.description?.let { binding.description.attributeText = viewModel.plant.description.toString() }
+
+        setImageView()
+    }
+
+    private fun setImageView(){
+        if (viewModel.plant.picture != null){
+            val bitmap = PictureUtils.fromByteArrayToBitmap(viewModel.plant.picture)
+            val drawable = BitmapDrawable(bitmap)
+            binding.plantImageContainer.setImageDrawable(drawable)
+        } else{
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_local_florist_24)
+            binding.plantImageContainer.setImageDrawable(drawable)
+        }
     }
 
 }

@@ -1,10 +1,19 @@
 package cz.mendelu.xmusil5.waterit.ui.plants.addoreditplant
 
+import android.Manifest
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,12 +23,14 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.databinding.FragmentAddOrEditPlantBinding
 import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragment
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
+import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 import cz.mendelu.xmusil5.waterit.views.DatePickerView
 import kotlinx.coroutines.launch
 
 
 class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOrEditPlantViewModel>(AddOrEditPlantViewModel::class) {
 
+    private val PICK_IMAGE_REQUEST_CODE = 100
     private val args: AddOrEditPlantFragmentArgs by navArgs()
 
     override val bindingInflater: (LayoutInflater) -> FragmentAddOrEditPlantBinding
@@ -50,6 +61,8 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
         viewModel.plantWithRoom.room?.name?.let { binding.room.value = viewModel.plantWithRoom.room!!.name }
         viewModel.plantWithRoom.plant.dateOfPlanting?.let { binding.dateOfPlanting.datePickText = DateUtils.getDateString(viewModel.plantWithRoom.plant.dateOfPlanting!!) }
         viewModel.plantWithRoom.plant.description?.let { binding.descriptionInput.text = viewModel.plantWithRoom.plant.description!! }
+
+        setImageView()
     }
 
     private fun setOnSaveAction(){
@@ -122,11 +135,58 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             binding.room.value = ""
         })
 
-        binding.imagePicker.setOnPickImageButtonListener(View.OnClickListener {
+        binding.imagePicker.setOnPickImageListener(View.OnClickListener {
+            // Checking if user gave permission to access gallery (if not, I ask for it)
+            val permission = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (permission == PackageManager.PERMISSION_GRANTED){
+                launchGallery()
+            } else{
+                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 2000)
+            }
+        })
 
+        binding.imagePicker.setOnCancelButtonClickListener(View.OnClickListener {
+            viewModel.plantWithRoom.plant.picture = null
+            setImageView()
         })
     }
 
 
 
+
+
+    private fun launchGallery(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == PICK_IMAGE_REQUEST_CODE){
+            val imageUri = data?.data // handle chosen image
+            imageUri?.let {
+                propagatePickedImage(imageUri!!)
+            }
+        }
+    }
+
+    private fun propagatePickedImage(imageUri: Uri){
+        val bitMap: Bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), Uri.parse(imageUri.toString()))
+        bitMap.let {
+            viewModel.plantWithRoom.plant.picture = PictureUtils.fromBitmapToByteArray(bitMap)
+            setImageView()
+        }
+    }
+
+    private fun setImageView(){
+        if (viewModel.plantWithRoom.plant.picture != null){
+            val bitmap = PictureUtils.fromByteArrayToBitmap(viewModel.plantWithRoom.plant.picture)
+            val drawable = BitmapDrawable(bitmap)
+            binding.imagePicker.image = drawable
+        } else{
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_local_florist_24)
+            binding.imagePicker.image = drawable!!
+        }
+    }
 }
