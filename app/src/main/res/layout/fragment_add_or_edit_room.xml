@@ -20,6 +20,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
+            <cz.mendelu.xmusil5.waterit.views.ImagePickView
+                android:id="@+id/imagePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:imagePickButtonText="@string/pickImage"
+                app:imagePickInitialPicture="@drawable/ic_baseline_meeting_room_24" />
+
             <cz.mendelu.xmusil5.waterit.views.TextInputView
                 android:id="@+id/nameInput"
                 android:layout_width="match_parent"

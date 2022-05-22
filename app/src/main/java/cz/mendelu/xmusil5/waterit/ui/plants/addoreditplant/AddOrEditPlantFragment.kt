@@ -42,6 +42,7 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             lifecycleScope.launch{
                 viewModel.fetchPlant()
             }.invokeOnCompletion {
+                setToolbarTitle(viewModel.plantWithRoom.plant.name)
                 fillLayout()
             }
         }else{
@@ -173,10 +174,8 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
 
     private fun propagatePickedImage(imageUri: Uri){
         val bitMap: Bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), Uri.parse(imageUri.toString()))
-        bitMap.let {
-            viewModel.plantWithRoom.plant.picture = PictureUtils.fromBitmapToByteArray(bitMap)
-            setImageView()
-        }
+        viewModel.plantWithRoom.plant.picture = PictureUtils.fromBitmapToByteArray(bitMap)
+        setImageView()
     }
 
     private fun setImageView(){

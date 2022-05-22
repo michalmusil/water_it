@@ -45,14 +45,12 @@
     <string name="roomsList_fragmentLabel">Rooms</string>
 
     <!-- Room detail -->
-    <string name="roomDetail_fragmentLabel">Room</string>
+    <string name="roomDetail_fragmentLabel">Room detail</string>
     <string name="roomDetail_showPlants">Show plants</string>
 
     <!-- Add room -->
     <string name="addRoom_fragmentLabel">Add room</string>
     <string name="addRoom_error_mustEnterRoomName">You must enter a room name</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

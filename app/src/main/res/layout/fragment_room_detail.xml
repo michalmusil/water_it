@@ -17,11 +17,12 @@
             app:layout_constraintDimensionRatio="1:1"
             android:layout_marginHorizontal="70dp"
             android:layout_marginTop="20dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="centerCrop"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/roundedImageView"
             app:srcCompat="@color/primaryColor" />
 
         <com.google.android.material.button.MaterialButton
