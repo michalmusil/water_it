@@ -26,4 +26,8 @@
         <attr name="imagePickInitialPicture" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="NumberInputView">
+        <attr name="numberInputHint" format="string"/>
+    </declare-styleable>
+
 </resources>

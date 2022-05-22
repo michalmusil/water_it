@@ -62,6 +62,7 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
         viewModel.plantWithRoom.room?.name?.let { binding.room.value = viewModel.plantWithRoom.room!!.name }
         viewModel.plantWithRoom.plant.dateOfPlanting?.let { binding.dateOfPlanting.datePickText = DateUtils.getDateString(viewModel.plantWithRoom.plant.dateOfPlanting!!) }
         viewModel.plantWithRoom.plant.description?.let { binding.descriptionInput.text = viewModel.plantWithRoom.plant.description!! }
+        viewModel.plantWithRoom.plant.daysBetweenWatering?.let { binding.daysBetweenWateringInput.number = viewModel.plantWithRoom.plant.daysBetweenWatering!! }
 
         setImageView()
     }
@@ -101,6 +102,16 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             }
             override fun afterTextChanged(text: Editable?) {
                 viewModel.plantWithRoom.plant.species = text.toString()
+            }
+        })
+        binding.daysBetweenWateringInput.addTextChangeListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun afterTextChanged(number: Editable?) {
+                val doubleValue = number.toString().toDoubleOrNull()
+                doubleValue?.let { viewModel.plantWithRoom.plant.daysBetweenWatering = doubleValue.toInt() }
             }
         })
         binding.descriptionInput.addTextChangeListener(object: TextWatcher{

@@ -8,10 +8,10 @@ import cz.mendelu.xmusil5.waterit.database.entities.relations.PlantWithRoom
 @Dao
 interface PlantsDao {
 
-    @Query("SELECT * FROM plants")
+    @Query("SELECT * FROM plants ORDER BY plants.name")
     fun getAll(): LiveData<MutableList<DbPlant>>
 
-    @Query("SELECT * FROM plants WHERE roomId = :roomId")
+    @Query("SELECT * FROM plants WHERE roomId = :roomId ORDER BY plants.name")
     fun getAllWithRoomId(roomId: Long): LiveData<MutableList<DbPlant>>
 
     @Query("SELECT * FROM plants WHERE id = :plantId")

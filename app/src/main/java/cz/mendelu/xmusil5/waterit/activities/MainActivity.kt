@@ -33,14 +33,14 @@ class MainActivity : AppCompatActivity() {
 
         // SETTING UP THE NAVIGATION
         navController = findNavController(R.id.nav_host_fragment_content_main)
-        drawerLayout = findViewById(R.id.drawerLayout)
+        drawerLayout = binding.drawerLayout
         // only adding the top level fragments - these fragments reset the navigation nesting and display burger icon upon entering them
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.PlantsListFragment,
             R.id.RoomsListFragment
         ), drawerLayout)
 
-        val navigationView: NavigationView = findViewById(R.id.navigationView)
+        val navigationView: NavigationView = binding.navigationView
         navigationView.setupWithNavController(navController)
         // END OF SETTING UP THE NAVIGATION
 

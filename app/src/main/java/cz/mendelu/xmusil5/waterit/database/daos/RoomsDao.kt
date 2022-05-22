@@ -8,7 +8,7 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 @Dao
 interface RoomsDao {
 
-    @Query("SELECT * FROM rooms")
+    @Query("SELECT * FROM rooms ORDER BY rooms.name")
     fun getAll(): LiveData<MutableList<DbRoom>>
 
     @Query("SELECT * FROM rooms WHERE id = :id")

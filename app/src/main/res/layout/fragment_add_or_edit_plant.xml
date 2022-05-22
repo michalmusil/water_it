@@ -43,6 +43,12 @@
                 app:maxChars="255"
                 app:maxLines="1" />
 
+            <cz.mendelu.xmusil5.waterit.views.NumberInputView
+                android:id="@+id/daysBetweenWateringInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:numberInputHint="@string/plantAttrs_daysBetweenWatering"/>
+
             <cz.mendelu.xmusil5.waterit.views.TextInputView
                 android:id="@+id/descriptionInput"
                 android:layout_width="match_parent"
