@@ -6,8 +6,9 @@
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2535" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/drawable/ic_baseline_local_florist_24.xml" value="0.2535" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/drawable/ic_baseline_meeting_room_24.xml" value="0.1485" />
+        <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/drawable/navigation_bottom_colors.xml" value="0.265" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/activity_main.xml" value="0.12" />
-        <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/dialog_fragment_rooms.xml" value="0.1" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/fragment_add_or_edit_plant.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/fragment_add_or_edit_room.xml" value="0.2975630611372381" />
@@ -31,6 +32,7 @@
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/view_input_text.xml" value="0.2" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/layout/view_number_input.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/menu/menu_main.xml" value="0.15982187036120732" />
+        <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/menu/navigation_bottom_menu.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/musil/OneDrive/Plocha/MENDELU/4.semestr/Android1/Waterit/xmusil5/app/src/main/res/menu/navigation_menu.xml" value="0.14110186286167262" />
       </map>
     </option>

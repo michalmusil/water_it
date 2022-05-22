@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/PlantsListFragment"
+        android:icon="@drawable/ic_baseline_local_florist_24"
+        android:title="@string/plants"/>
+    <item
+        android:id="@+id/RoomsListFragment"
+        android:icon="@drawable/ic_baseline_meeting_room_24"
+        android:title="@string/rooms"/>
+
+</menu>

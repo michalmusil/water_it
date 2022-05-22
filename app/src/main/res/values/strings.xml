@@ -6,6 +6,8 @@
     <!-- General -->
     <string name="image">Image</string>
     <string name="pickImage">Pick an image</string>
+    <string name="plants">Plants</string>
+    <string name="rooms">Rooms</string>
 
 
     <!-- Plants attributes -->
