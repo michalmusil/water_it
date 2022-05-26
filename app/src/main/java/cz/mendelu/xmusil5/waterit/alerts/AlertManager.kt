@@ -12,9 +12,10 @@ class AlertManager(private val plantRepository: IPlantsLocalRepository) {
         val alerts = plants.filter {
             if (it.lastWatered != null && it.daysBetweenWatering != null){
                 val date = DateUtils.getDate(it.lastWatered!!)
-                DateUtils.daysBetween(DateUtils.getCurrentDate(), date) > it.daysBetweenWatering!!
+                DateUtils.daysBetween(date, DateUtils.getCurrentDate()) > it.daysBetweenWatering!!
+            } else {
+                false
             }
-            false
         }.map {
             AlertModel(it)
         }

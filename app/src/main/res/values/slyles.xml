@@ -3,6 +3,11 @@
 
     <style name="roundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40dp</item>
+    </style>
+
+    <style name="roundedImageListItem" parent="">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>
 

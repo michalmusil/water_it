@@ -1,5 +1,6 @@
 package cz.mendelu.xmusil5.waterit.di
 
+import cz.mendelu.xmusil5.waterit.ui.alerts.AlertsViewModel
 import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragmentViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.addoreditplant.AddOrEditPlantViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailViewModel
@@ -37,6 +38,13 @@ val viewModelModule = module {
     viewModel {
         AddOrEditRoomViewModel(get())
     }
+
+
+    // Alert ViewModels
+    viewModel {
+        AlertsViewModel(get(), get())
+    }
+
 
     // Dialog fragments ViewModels
     viewModel {

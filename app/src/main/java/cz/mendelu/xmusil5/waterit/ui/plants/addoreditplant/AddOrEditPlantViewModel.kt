@@ -5,6 +5,7 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.database.entities.relations.PlantWithRoom
 import cz.mendelu.xmusil5.waterit.database.repositories.plants.IPlantsLocalRepository
+import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import java.lang.IllegalStateException
 
 class AddOrEditPlantViewModel(private val repository: IPlantsLocalRepository): ViewModel() {
@@ -22,8 +23,11 @@ class AddOrEditPlantViewModel(private val repository: IPlantsLocalRepository): V
 
     suspend fun savePlant(){
         if (plantId < 0){
+            // inserting a new plant
+            plantWithRoom.plant.lastWatered = DateUtils.getCurrentUnixTime()
             repository.insert(plantWithRoom.plant)
         } else{
+            // updating an existing plant
             repository.update(plantWithRoom.plant)
         }
     }

@@ -3,13 +3,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:title="@string/plantsList_fragmentLabel"
+            android:title="@string/plants"
             android:id="@+id/PlantsListFragment"
             android:icon="@drawable/ic_baseline_local_florist_24"/>
 
-        <item android:title="@string/roomsList_fragmentLabel"
+        <item android:title="@string/rooms"
             android:id="@+id/RoomsListFragment"
             android:icon="@drawable/ic_baseline_meeting_room_24"/>
+
+        <item android:title="@string/alerts"
+            android:id="@+id/AlertsFragment"
+            android:icon="@drawable/ic_baseline_alert_outline"/>
     </group>
 
 </menu>

@@ -130,4 +130,17 @@
             app:popUpToInclusive="false" />
 
     </fragment>
+
+
+
+
+
+    <fragment
+        android:id="@+id/AlertsFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.alerts.AlertsFragment"
+        android:label="@string/alertsList_fragmentLabel"
+        tools:layout="@layout/fragment_alerts">
+
+    </fragment>
+
 </navigation>

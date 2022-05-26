@@ -8,5 +8,9 @@
         android:id="@+id/RoomsListFragment"
         android:icon="@drawable/ic_baseline_meeting_room_24"
         android:title="@string/rooms"/>
+    <item
+        android:id="@+id/AlertsFragment"
+        android:icon="@drawable/ic_baseline_alert_outline"
+        android:title="@string/alerts"/>
 
 </menu>
