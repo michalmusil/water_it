@@ -11,6 +11,9 @@ interface PlantsDao {
     @Query("SELECT * FROM plants ORDER BY plants.name")
     fun getAll(): LiveData<MutableList<DbPlant>>
 
+    @Query("SELECT * FROM plants ORDER BY plants.name")
+    suspend fun getAllStatic(): MutableList<DbPlant>
+
     @Query("SELECT * FROM plants WHERE roomId = :roomId ORDER BY plants.name")
     fun getAllWithRoomId(roomId: Long): LiveData<MutableList<DbPlant>>
 

@@ -11,6 +11,10 @@ class PlantsLocalRepositoryImpl(private val plantsDao: PlantsDao): IPlantsLocalR
         return plantsDao.getAll()
     }
 
+    override suspend fun getAllStatic(): MutableList<DbPlant> {
+        return plantsDao.getAllStatic()
+    }
+
     override fun getAllWithRoomId(roomId: Long): LiveData<MutableList<DbPlant>> {
         return plantsDao.getAllWithRoomId(roomId)
     }

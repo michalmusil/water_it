@@ -8,6 +8,8 @@ import cz.mendelu.xmusil5.waterit.database.entities.relations.PlantWithRoom
 interface IPlantsLocalRepository {
     fun getAll(): LiveData<MutableList<DbPlant>>
 
+    suspend fun getAllStatic(): MutableList<DbPlant>
+
     fun getAllWithRoomId(roomId: Long): LiveData<MutableList<DbPlant>>
 
     suspend fun getPlantWithRoom(plantId: Long): PlantWithRoom
