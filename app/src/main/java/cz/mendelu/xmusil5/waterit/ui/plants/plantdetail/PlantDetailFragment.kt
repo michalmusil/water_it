@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -70,20 +69,20 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
 
 
     private fun fillLayout(){
-        binding.name.attributeText = viewModel.plant.name
-        binding.species.attributeText = viewModel.plant.species
-        viewModel.plant.roomId?.let { binding.room.attributeText = viewModel.plant.roomId.toString() }
-        viewModel.plant.dateOfPlanting?.let { binding.datePlanted.attributeText = DateUtils.getDateString(viewModel.plant.dateOfPlanting!!) }
-        viewModel.plant.lastWatered?.let { binding.lastWatered.attributeText = DateUtils.getDateString(viewModel.plant.lastWatered!!) }
-        viewModel.plant.daysBetweenWatering?.let { binding.daysBetweenWatering.attributeText = viewModel.plant.daysBetweenWatering.toString() }
-        viewModel.plant.description?.let { binding.description.attributeText = viewModel.plant.description.toString() }
+        binding.name.attributeText = viewModel.plantWithRoom.plant.name
+        binding.species.attributeText = viewModel.plantWithRoom.plant.species
+        viewModel.plantWithRoom.room?.let { binding.room.attributeText = viewModel.plantWithRoom.room!!.name }
+        viewModel.plantWithRoom.plant.dateOfPlanting?.let { binding.datePlanted.attributeText = DateUtils.getDateString(viewModel.plantWithRoom.plant.dateOfPlanting!!) }
+        viewModel.plantWithRoom.plant.lastWatered?.let { binding.lastWatered.attributeText = DateUtils.getDateString(viewModel.plantWithRoom.plant.lastWatered!!) }
+        viewModel.plantWithRoom.plant.daysBetweenWatering?.let { binding.daysBetweenWatering.attributeText = viewModel.plantWithRoom.plant.daysBetweenWatering.toString() }
+        viewModel.plantWithRoom.plant.description?.let { binding.description.attributeText = viewModel.plantWithRoom.plant.description.toString() }
 
         setImageView()
     }
 
     private fun setImageView(){
-        if (viewModel.plant.picture != null){
-            val bitmap = PictureUtils.fromByteArrayToBitmap(viewModel.plant.picture)
+        if (viewModel.plantWithRoom.plant.picture != null){
+            val bitmap = PictureUtils.fromByteArrayToBitmap(viewModel.plantWithRoom.plant.picture)
             val drawable = BitmapDrawable(bitmap)
             binding.plantImageContainer.setImageDrawable(drawable)
         } else{
