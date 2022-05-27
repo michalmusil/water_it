@@ -37,8 +37,6 @@
     <string name="plantsContextual_fragmentLabel">Plants of room</string>
 
 
-
-
     <!-- Rooms attributes -->
     <string name="roomAttrs_name">Name</string>
     <string name="roomAttrs_longitude">Longitude</string>
@@ -58,9 +56,6 @@
     <string name="addRoom_error_mustEnterRoomName">You must enter a room name</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
-
 
 
     <!-- Alerts attributes -->

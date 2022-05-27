@@ -3,6 +3,7 @@ package cz.mendelu.xmusil5.waterit.alerts.models
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import java.util.*
+import java.util.Calendar.DATE
 
 class AlertModel(
     val plant: DbPlant) {
@@ -22,6 +23,7 @@ class AlertModel(
         get() {
             if (plant.lastWatered != null && plant.daysBetweenWatering != null) {
                 val dateTime: Calendar = DateUtils.getDate(plant.lastWatered!!)
+                dateTime.add(DATE, plant.daysBetweenWatering!!)
                 return DateUtils.getDayOfTheWeekString(dateTime)
             }
             return ""

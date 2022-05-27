@@ -13,7 +13,8 @@
     <color name="primaryBackgroundColor">#424242</color>
     <color name="primaryTextColor">#FFFFFF</color>
 
-    <color name="alertColor">#6C3232</color>
+    <color name="alertSevereColor">#8F3434</color>
+    <color name="alertCheckedColor">#3FA822</color>
 
 
 </resources>
