@@ -10,8 +10,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -32,9 +31,9 @@ class AddOrEditRoomFragment : BaseFragment<FragmentAddOrEditRoomBinding, AddOrEd
         get() = FragmentAddOrEditRoomBinding::inflate
 
     override fun initViews() {
-        setInteractionListeners()
-        setOnSaveAction()
+        setHasOptionsMenu(true)
 
+        setInteractionListeners()
         viewModel.roomId = args.roomId
         if (viewModel.roomId >= 0) {
             lifecycleScope.launch {
@@ -54,6 +53,25 @@ class AddOrEditRoomFragment : BaseFragment<FragmentAddOrEditRoomBinding, AddOrEd
     override fun onFragmentViewDestroyed() {
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        requireActivity().menuInflater.inflate(R.menu.menu_fragment_add_or_edit_room, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_save -> {
+                onSaveAction()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
+
+
+
     private fun fillLayout(){
         binding.nameInput.text = viewModel.room.name
 
@@ -62,19 +80,17 @@ class AddOrEditRoomFragment : BaseFragment<FragmentAddOrEditRoomBinding, AddOrEd
         setImageView()
     }
 
-    private fun setOnSaveAction(){
-        binding.saveRoomButton.setOnClickListener(View.OnClickListener {
-            if (binding.nameInput.text.isBlank()){
-                binding.nameInput.setError(getString(R.string.addRoom_error_mustEnterRoomName))
-            } else{
-                lifecycleScope.launch {
-                    viewModel.saveRoom()
-                }.invokeOnCompletion {
-                    val directions = AddOrEditRoomFragmentDirections.actionAddOrEditRoomFragmentToRoomsListFragment()
-                    findNavController().navigate(directions)
-                }
+    private fun onSaveAction(){
+        if (binding.nameInput.text.isBlank()){
+            binding.nameInput.setError(getString(R.string.addRoom_error_mustEnterRoomName))
+        } else{
+            lifecycleScope.launch {
+                viewModel.saveRoom()
+            }.invokeOnCompletion {
+                val directions = AddOrEditRoomFragmentDirections.actionAddOrEditRoomFragmentToRoomsListFragment()
+                findNavController().navigate(directions)
             }
-        })
+        }
     }
 
     private fun setInteractionListeners(){

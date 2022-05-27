@@ -2,8 +2,13 @@ package cz.mendelu.xmusil5.waterit.ui.plants.plantdetail
 
 import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
@@ -22,6 +27,8 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
         get() = FragmentPlantDetailBinding::inflate
 
     override fun initViews() {
+        setHasOptionsMenu(true)
+
         viewModel.plantId = this.args.plantId
         if (viewModel.plantId>=0){
             lifecycleScope.launch {
@@ -40,6 +47,27 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
 
     override fun onFragmentViewDestroyed() {
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        requireActivity().menuInflater.inflate(R.menu.menu_fragment_plant_detail, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_edit -> {
+                val directions = PlantDetailFragmentDirections.actionPlantDetailFragmentToAddOrEditPlantFragment(viewModel.plantId)
+                findNavController().navigate(directions)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
+
+
+
 
     private fun fillLayout(){
         binding.name.attributeText = viewModel.plant.name

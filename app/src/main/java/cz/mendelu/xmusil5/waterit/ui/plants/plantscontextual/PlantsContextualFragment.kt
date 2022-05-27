@@ -3,12 +3,14 @@ package cz.mendelu.xmusil5.waterit.ui.plants.plantscontextual
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.FragmentPlantsListBinding
@@ -27,7 +29,7 @@ class PlantsContextualFragment: BaseFragment<FragmentPlantsListBinding, PlantsCo
         lifecycleScope.launch {
             loadArgumentModels()
             if (viewModel.room != null){
-                changeActiomBarTitle("${viewModel.room!!.name!!}")
+                setToolbarTitle()
 
                 viewModel.layoutManager = LinearLayoutManager(requireContext())
                 viewModel.plantsAdapter = PlantsRecyclerViewAdapter(requireContext(), viewModel.plantsList, object: PlantsRecyclerViewAdapter.PlantsRecyclerViewEventListener{
@@ -65,6 +67,11 @@ class PlantsContextualFragment: BaseFragment<FragmentPlantsListBinding, PlantsCo
     }
 
     override fun onFragmentViewDestroyed() {
+    }
+
+    private fun setToolbarTitle(){
+        val appendix = getString(R.string.plants).lowercase()
+        changeActiomBarTitle("${viewModel.room!!.name!!} ${appendix}")
     }
 
     private suspend fun loadArgumentModels(){

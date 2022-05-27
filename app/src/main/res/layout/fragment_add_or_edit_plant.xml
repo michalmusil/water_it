@@ -49,14 +49,6 @@
                 android:layout_height="wrap_content"
                 app:numberInputHint="@string/plantAttrs_daysBetweenWatering"/>
 
-            <cz.mendelu.xmusil5.waterit.views.TextInputView
-                android:id="@+id/descriptionInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:hint="@string/plantAttrs_description"
-                app:maxChars="500"
-                app:maxLines="10" />
-
             <cz.mendelu.xmusil5.waterit.views.DatePickerView
                 android:id="@+id/dateOfPlanting"
                 android:layout_width="match_parent"
@@ -76,21 +68,15 @@
                 app:customLabel="@string/plantAttrs_room"
                 app:customImage="@drawable/ic_baseline_meeting_room_24"/>
 
+            <cz.mendelu.xmusil5.waterit.views.TextInputView
+                android:id="@+id/descriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hint="@string/plantAttrs_description"
+                app:maxChars="500"
+                app:maxLines="10" />
+
         </LinearLayout>
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/savePlantButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:backgroundTint="@color/secondaryColor"
-            android:textSize="30sp"
-            android:text="@string/action_save"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputs" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

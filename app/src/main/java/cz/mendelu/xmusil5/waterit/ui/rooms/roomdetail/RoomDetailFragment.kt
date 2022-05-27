@@ -1,8 +1,7 @@
 package cz.mendelu.xmusil5.waterit.ui.rooms.roomdetail
 
 import android.graphics.drawable.BitmapDrawable
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -22,26 +21,46 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
         get() = FragmentRoomDetailBinding::inflate
 
     override fun initViews() {
+        setHasOptionsMenu(true)
+
         viewModel.roomId = this.args.roomId
         if (viewModel.roomId>=0){
             lifecycleScope.launch {
                 viewModel.fetchRoom()
             }.invokeOnCompletion {
                 fillLayout()
-                setInteractionListeners()
             }
         } else{
             // do an error fix to prevent this from EVER HAPPENING
             //probably just go back
         }
-
-
     }
 
     override fun onActivityCreated() {
     }
 
     override fun onFragmentViewDestroyed() {
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        requireActivity().menuInflater.inflate(R.menu.menu_fragment_room_detail, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_edit -> {
+                val directions = RoomDetailFragmentDirections.actionRoomDetailFragmentToAddOrEditRoomFragment(viewModel.roomId)
+                findNavController().navigate(directions)
+                return true
+            }
+            R.id.action_show_plants -> {
+                val directions = RoomDetailFragmentDirections.actionRoomDetailFragmentToPlantsContextualFragment(viewModel.roomId)
+                findNavController().navigate(directions)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun fillLayout(){
@@ -51,13 +70,6 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
         viewModel.room.description?.let { binding.description.attributeText = viewModel.room.description.toString() }
 
         setImageView()
-    }
-
-    private fun setInteractionListeners(){
-        binding.showPlantsButton.setOnClickListener(View.OnClickListener {
-            val directions = RoomDetailFragmentDirections.actionRoomDetailFragmentToPlantsContextualFragment(viewModel.roomId)
-            findNavController().navigate(directions)
-        })
     }
 
     private fun setImageView(){

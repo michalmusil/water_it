@@ -10,8 +10,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -22,6 +21,7 @@ import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.databinding.FragmentAddOrEditPlantBinding
 import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragment
+import cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailFragmentDirections
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 import cz.mendelu.xmusil5.waterit.views.DatePickerView
@@ -37,6 +37,8 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
         get() = FragmentAddOrEditPlantBinding::inflate
 
     override fun initViews() {
+        setHasOptionsMenu(true)
+
         viewModel.plantId = args.plantId
         if (viewModel.plantId >= 0){
             lifecycleScope.launch{
@@ -49,7 +51,6 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             fillLayout()
         }
         setInteractionListeners()
-        setOnSaveAction()
     }
 
     override fun onActivityCreated() {
@@ -57,6 +58,23 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
 
     override fun onFragmentViewDestroyed() {
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        requireActivity().menuInflater.inflate(R.menu.menu_fragment_add_or_edit_plant, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_save -> {
+                onSaveAction()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
 
     private fun fillLayout(){
         binding.nameInput.text = viewModel.plantWithRoom.plant.name
@@ -72,21 +90,19 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
         setRoomImageView()
     }
 
-    private fun setOnSaveAction(){
-        binding.savePlantButton.setOnClickListener(View.OnClickListener {
-            if (binding.nameInput.text.isBlank()){
-                binding.nameInput.setError(getString(R.string.addPlant_error_mustEnterPlantName))
-            } else if (binding.speciesInput.text.isBlank()){
-                binding.speciesInput.setError(getString(R.string.addPlant_error_mustEnterPlantSpecies))
-            } else{
-                lifecycleScope.launch {
-                    viewModel.savePlant()
-                }.invokeOnCompletion {
-                    val directions = AddOrEditPlantFragmentDirections.actionAddOrEditPlantFragmentToPlantsFragment()
-                    findNavController().navigate(directions)
-                }
+    private fun onSaveAction(){
+        if (binding.nameInput.text.isBlank()){
+            binding.nameInput.setError(getString(R.string.addPlant_error_mustEnterPlantName))
+        } else if (binding.speciesInput.text.isBlank()){
+            binding.speciesInput.setError(getString(R.string.addPlant_error_mustEnterPlantSpecies))
+        } else{
+            lifecycleScope.launch {
+                viewModel.savePlant()
+            }.invokeOnCompletion {
+                val directions = AddOrEditPlantFragmentDirections.actionAddOrEditPlantFragmentToPlantsFragment()
+                findNavController().navigate(directions)
             }
-        })
+        }
     }
 
 

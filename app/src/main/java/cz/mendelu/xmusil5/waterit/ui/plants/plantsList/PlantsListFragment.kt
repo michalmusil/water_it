@@ -22,7 +22,7 @@ class PlantsListFragment : BaseFragment<FragmentPlantsListBinding, PlantsListVie
         viewModel.layoutManager = LinearLayoutManager(requireContext())
         viewModel.plantsAdapter = PlantsRecyclerViewAdapter(requireContext(), viewModel.plantsList, object: PlantsRecyclerViewAdapter.PlantsRecyclerViewEventListener{
             override fun onItemClicked(plant: DbPlant) {
-                val directions = PlantsListFragmentDirections.actionPlantsFragmentToAddOrEditPlantFragment(plant.id!!)
+                val directions = PlantsListFragmentDirections.actionPlantsFragmentToPlantDetailFragment(plant.id!!)
                 findNavController().navigate(directions)
             }
         })

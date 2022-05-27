@@ -35,6 +35,11 @@
         <action
             android:id="@+id/action_PlantDetailFragment_to_PlantsFragment"
             app:destination="@id/PlantsListFragment" />
+
+        <action
+            android:id="@+id/action_PlantDetailFragment_to_AddOrEditPlantFragment"
+            app:destination="@id/AddOrEditPlantFragment" />
+
     </fragment>
 
     <fragment
@@ -106,6 +111,10 @@
         <action
             android:id="@+id/action_RoomDetailFragment_to_RoomsListFragment"
             app:destination="@id/RoomsListFragment" />
+
+        <action
+            android:id="@+id/action_RoomDetailFragment_to_AddOrEditRoomFragment"
+            app:destination="@id/AddOrEditRoomFragment" />
 
         <action
             android:id="@+id/action_RoomDetailFragment_to_PlantsContextualFragment"

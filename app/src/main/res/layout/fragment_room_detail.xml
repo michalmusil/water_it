@@ -25,17 +25,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@color/primaryColor" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/showPlantsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/roomDetail_showPlants"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            app:backgroundTint="@color/secondaryColor"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/roomImageContainer" />
 
         <LinearLayout
             android:id="@+id/values"
@@ -43,7 +32,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
 
-            app:layout_constraintTop_toBottomOf="@id/showPlantsButton"
+            app:layout_constraintTop_toBottomOf="@id/roomImageContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
