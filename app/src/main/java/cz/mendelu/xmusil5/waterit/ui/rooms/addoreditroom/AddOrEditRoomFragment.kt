@@ -51,6 +51,9 @@ class AddOrEditRoomFragment : BaseFragment<FragmentAddOrEditRoomBinding, AddOrEd
     override fun onActivityCreated() {
     }
 
+    override fun onFragmentViewDestroyed() {
+    }
+
     private fun fillLayout(){
         binding.nameInput.text = viewModel.room.name
 

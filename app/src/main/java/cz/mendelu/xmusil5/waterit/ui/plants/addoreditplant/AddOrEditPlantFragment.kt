@@ -55,16 +55,21 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
     override fun onActivityCreated() {
     }
 
+    override fun onFragmentViewDestroyed() {
+    }
+
     private fun fillLayout(){
         binding.nameInput.text = viewModel.plantWithRoom.plant.name
         binding.speciesInput.text = viewModel.plantWithRoom.plant.species
 
         viewModel.plantWithRoom.room?.name?.let { binding.room.value = viewModel.plantWithRoom.room!!.name }
         viewModel.plantWithRoom.plant.dateOfPlanting?.let { binding.dateOfPlanting.datePickText = DateUtils.getDateString(viewModel.plantWithRoom.plant.dateOfPlanting!!) }
+        viewModel.plantWithRoom.plant.lastWatered?.let { binding.lastWatered.datePickText = DateUtils.getDateString(viewModel.plantWithRoom.plant.lastWatered!!) }
         viewModel.plantWithRoom.plant.description?.let { binding.descriptionInput.text = viewModel.plantWithRoom.plant.description!! }
         viewModel.plantWithRoom.plant.daysBetweenWatering?.let { binding.daysBetweenWateringInput.number = viewModel.plantWithRoom.plant.daysBetweenWatering!! }
 
         setImageView()
+        setRoomImageView()
     }
 
     private fun setOnSaveAction(){
@@ -130,12 +135,19 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             }
         })
 
+        binding.lastWatered.setOnDateChangedListener(object: DatePickerView.CustomOnDateChangedListener{
+            override fun onDateChanged(unixTime: Long?) {
+                viewModel.plantWithRoom.plant.lastWatered = unixTime
+            }
+        })
+
         binding.room.setRootOnClickListener(View.OnClickListener {
             var dialog = RoomsDialogFragment(object : RoomsDialogFragment.RoomOnClickListener{
                 override fun onRoomClicked(room: DbRoom) {
                     viewModel.plantWithRoom.room = room
                     viewModel.plantWithRoom.plant.roomId = room.id
                     binding.room.value = room.name
+                    setRoomImageView()
                 }
             })
             dialog.show(requireActivity().supportFragmentManager, "rooms")
@@ -145,6 +157,7 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             viewModel.plantWithRoom.room = null
             viewModel.plantWithRoom.plant.roomId = null
             binding.room.value = ""
+            setRoomImageView()
         })
 
         binding.imagePicker.setOnPickImageListener(View.OnClickListener {
@@ -197,6 +210,17 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
         } else{
             val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_local_florist_24)
             binding.imagePicker.image = drawable!!
+        }
+    }
+
+    private fun setRoomImageView(){
+        if (viewModel.plantWithRoom.room != null && viewModel.plantWithRoom.room!!.picture != null) {
+            val bitmap = PictureUtils.fromByteArrayToBitmap(viewModel.plantWithRoom.room!!.picture)
+            val drawable = BitmapDrawable(bitmap)
+            binding.room.setImageDrawable(drawable)
+        } else {
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_meeting_room_24)
+            binding.room.setImageDrawable(drawable!!)
         }
     }
 }

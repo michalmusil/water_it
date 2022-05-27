@@ -36,7 +36,9 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
     }
 
     override fun onActivityCreated() {
+    }
 
+    override fun onFragmentViewDestroyed() {
     }
 
     private fun fillLayout(){

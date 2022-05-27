@@ -28,11 +28,17 @@ abstract class BaseFragment<B : ViewBinding,
     val viewModel: VM by lazy { getViewModel(null, viewModelClass) }
     abstract fun initViews()
     abstract fun onActivityCreated()
+    abstract fun onFragmentViewDestroyed()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         baseBinding = bindingInflater(inflater)
         val toolbar = (requireActivity() as AppCompatActivity?)?.supportActionBar
         initViews()
         return baseBinding!!.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        onFragmentViewDestroyed()
     }
     override fun onDestroy() {
         super.onDestroy()

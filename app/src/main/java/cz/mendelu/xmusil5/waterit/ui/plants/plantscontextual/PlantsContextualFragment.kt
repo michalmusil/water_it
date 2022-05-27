@@ -62,7 +62,9 @@ class PlantsContextualFragment: BaseFragment<FragmentPlantsListBinding, PlantsCo
     }
 
     override fun onActivityCreated() {
+    }
 
+    override fun onFragmentViewDestroyed() {
     }
 
     private suspend fun loadArgumentModels(){

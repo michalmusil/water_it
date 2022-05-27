@@ -42,7 +42,7 @@ val viewModelModule = module {
 
     // Alert ViewModels
     viewModel {
-        AlertsViewModel(get(), get())
+        AlertsViewModel(get())
     }
 
 

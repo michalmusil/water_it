@@ -41,6 +41,9 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
     override fun onActivityCreated() {
     }
 
+    override fun onFragmentViewDestroyed() {
+    }
+
     private fun fillLayout(){
         binding.name.attributeText = viewModel.room.name
         viewModel.room.longitude?.let { binding.longitude.attributeText = viewModel.room.longitude.toString() }

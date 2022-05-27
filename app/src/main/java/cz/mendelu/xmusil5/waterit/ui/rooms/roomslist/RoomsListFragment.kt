@@ -48,7 +48,9 @@ class RoomsListFragment : BaseFragment<FragmentRoomsListBinding, RoomsListViewMo
     }
 
     override fun onActivityCreated() {
+    }
 
+    override fun onFragmentViewDestroyed() {
     }
 
 

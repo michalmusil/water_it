@@ -3,6 +3,8 @@ package cz.mendelu.xmusil5.waterit.ui.alerts
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import android.widget.GridLayout.VERTICAL
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +23,7 @@ class AlertsFragment : BaseFragment<FragmentAlertsBinding, AlertsViewModel>(Aler
         lifecycleScope.launch {
             viewModel.loadAlerts()
         }.invokeOnCompletion {
-            viewModel.layoutManager = GridLayoutManager(requireContext(), 3)
+            viewModel.layoutManager = GridLayoutManager(requireContext(), 2)
             viewModel.alertsAdapter = AlertsRecyclerViewAdapter()
 
             val rw = binding.alertsRecyclerView
@@ -31,6 +33,10 @@ class AlertsFragment : BaseFragment<FragmentAlertsBinding, AlertsViewModel>(Aler
     }
 
     override fun onActivityCreated() {
+    }
+
+    override fun onFragmentViewDestroyed() {
+        viewModel.updateCheckedAlerts()
     }
 
     inner class AlertsRecyclerViewAdapter(): RecyclerView.Adapter<AlertsRecyclerViewAdapter.AlertViewHolder>(){
@@ -48,10 +54,15 @@ class AlertsFragment : BaseFragment<FragmentAlertsBinding, AlertsViewModel>(Aler
             holder.binding.supposedToWaterDate.text = bindedAlert.supposedWateringDateString
             holder.binding.supposedToWaterDay.text = bindedAlert.supposedWateringDayString
 
-            holder.binding.root.setOnClickListener(View.OnClickListener {
-                holder.binding.checked.isChecked = !holder.binding.checked.isChecked
-                bindedAlert.checked = !bindedAlert.checked
-            })
+            holder.binding.checked.setOnCheckedChangeListener(
+                object : CompoundButton.OnCheckedChangeListener{
+                    override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                        lifecycleScope.launch {
+                            bindedAlert.checked = p1
+                        }
+
+                    }
+                })
         }
 
         override fun getItemCount(): Int {

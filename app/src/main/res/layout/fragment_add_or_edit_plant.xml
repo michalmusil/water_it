@@ -63,6 +63,11 @@
                 android:layout_height="wrap_content"
                 app:dateLabel="@string/plantAttrs_datePlanted" />
 
+            <cz.mendelu.xmusil5.waterit.views.DatePickerView
+                android:id="@+id/lastWatered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dateLabel="@string/plantAttrs_lastWatered" />
 
             <cz.mendelu.xmusil5.waterit.views.CustomInputView
                 android:id="@+id/room"

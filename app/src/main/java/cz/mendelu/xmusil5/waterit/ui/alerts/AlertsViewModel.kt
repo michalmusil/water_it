@@ -4,10 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.mendelu.xmusil5.waterit.alerts.AlertManager
 import cz.mendelu.xmusil5.waterit.alerts.models.AlertModel
-import cz.mendelu.xmusil5.waterit.database.repositories.plants.IPlantsLocalRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
-class AlertsViewModel(private val plantsRepository: IPlantsLocalRepository,
-    private val alertManager: AlertManager): ViewModel() {
+class AlertsViewModel(private val alertManager: AlertManager): ViewModel() {
 
     var alerts: MutableList<AlertModel> = mutableListOf()
     lateinit var layoutManager: LinearLayoutManager
@@ -15,6 +16,12 @@ class AlertsViewModel(private val plantsRepository: IPlantsLocalRepository,
 
     suspend fun loadAlerts(){
         alerts = alertManager.getAllAlerts()
+    }
+
+    fun updateCheckedAlerts(){
+        CoroutineScope(IO).launch {
+            alertManager.propagateChecked(alerts)
+        }
     }
 
 
