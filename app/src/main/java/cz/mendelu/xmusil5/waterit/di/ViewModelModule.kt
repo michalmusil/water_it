@@ -2,6 +2,7 @@ package cz.mendelu.xmusil5.waterit.di
 
 import cz.mendelu.xmusil5.waterit.ui.alerts.AlertsViewModel
 import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragmentViewModel
+import cz.mendelu.xmusil5.waterit.ui.home.HomeViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.addoreditplant.AddOrEditPlantViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailViewModel
 import cz.mendelu.xmusil5.waterit.ui.plants.plantsList.PlantsListViewModel
@@ -13,6 +14,11 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
+    // Home ViewModel
+    viewModel{
+        HomeViewModel(get(), get())
+    }
+
     // Plant ViewModels
     viewModel{
         PlantsListViewModel(get())

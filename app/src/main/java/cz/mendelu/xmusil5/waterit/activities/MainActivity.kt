@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         // only adding the top level fragments - these fragments reset the navigation nesting and display burger icon upon entering them
         appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.HomeFragment,
             R.id.PlantsListFragment,
             R.id.RoomsListFragment,
             R.id.AlertsFragment

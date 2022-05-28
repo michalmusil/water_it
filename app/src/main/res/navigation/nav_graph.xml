@@ -3,7 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/PlantsListFragment">
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.home.HomeFragment"
+        android:label="@string/home_fragmentLabel"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_PlantDetailFragment"
+            app:destination="@id/PlantDetailFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/PlantsListFragment"
