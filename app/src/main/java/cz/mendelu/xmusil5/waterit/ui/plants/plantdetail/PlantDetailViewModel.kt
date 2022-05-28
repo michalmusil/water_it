@@ -17,4 +17,12 @@ class PlantDetailViewModel(private val repository: IPlantsLocalRepository): View
             throw IllegalStateException()
         }
     }
+
+    suspend fun deletePlant(){
+        if (plantId >= 0) {
+            repository.delete(plantWithRoom.plant)
+        } else{
+            throw IllegalStateException()
+        }
+    }
 }

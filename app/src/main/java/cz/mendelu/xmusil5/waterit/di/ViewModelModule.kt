@@ -39,7 +39,7 @@ val viewModelModule = module {
         RoomsListViewModel(get())
     }
     viewModel {
-        RoomDetailViewModel(get())
+        RoomDetailViewModel(get(), get())
     }
     viewModel {
         AddOrEditRoomViewModel(get())

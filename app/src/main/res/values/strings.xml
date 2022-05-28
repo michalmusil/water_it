@@ -3,8 +3,11 @@
     <string name="app_name">Water.it</string>
     <string name="action_save">Save</string>
     <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
     <string name="action_settings">Settings</string>
     <string name="action_show_plants">Show plants</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
 
 
     <string name="version">Version</string>
@@ -37,7 +40,7 @@
     <string name="home_fragmentLabel">Home</string>
 
     <!-- About -->
-    <string name="about_fragmentLabel">Home</string>
+    <string name="about_fragmentLabel">About</string>
 
 
     <!-- Plants attributes -->

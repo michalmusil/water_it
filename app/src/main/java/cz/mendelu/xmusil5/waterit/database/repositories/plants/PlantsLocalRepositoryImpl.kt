@@ -27,6 +27,10 @@ class PlantsLocalRepositoryImpl(private val plantsDao: PlantsDao): IPlantsLocalR
         return plantsDao.findById(id)
     }
 
+    override suspend fun removeReferenceToRoom(roomId: Long){
+        plantsDao.removeReferenceToRoom(roomId)
+    }
+
     override suspend fun insert(plant: DbPlant): Long {
         return plantsDao.insert(plant)
     }

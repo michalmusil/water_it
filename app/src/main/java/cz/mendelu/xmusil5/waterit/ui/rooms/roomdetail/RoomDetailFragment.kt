@@ -59,6 +59,14 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
                 findNavController().navigate(directions)
                 return true
             }
+            R.id.action_delete -> {
+                lifecycleScope.launch{
+                    viewModel.deleteRoom()
+                }.invokeOnCompletion {
+                    finishCurrentFragment()
+                }
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

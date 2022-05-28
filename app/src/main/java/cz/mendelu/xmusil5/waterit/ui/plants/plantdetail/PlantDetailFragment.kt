@@ -59,6 +59,14 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
                 findNavController().navigate(directions)
                 return true
             }
+            R.id.action_delete -> {
+                lifecycleScope.launch{
+                    viewModel.deletePlant()
+                }.invokeOnCompletion {
+                    finishCurrentFragment()
+                }
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -90,5 +98,7 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
             binding.plantImageContainer.setImageDrawable(drawable)
         }
     }
+
+    
 
 }
