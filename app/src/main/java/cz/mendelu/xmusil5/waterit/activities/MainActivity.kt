@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
             R.id.HomeFragment,
             R.id.PlantsListFragment,
             R.id.RoomsListFragment,
-            R.id.AlertsFragment
+            R.id.AlertsFragment,
+            R.id.AboutFragment
         ), drawerLayout)
 
         bottomNavigation.setupWithNavController(navController)

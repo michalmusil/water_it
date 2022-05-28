@@ -19,6 +19,10 @@
         <item android:title="@string/alerts"
             android:id="@+id/AlertsFragment"
             android:icon="@drawable/ic_watering_can"/>
+
+        <item android:title="@string/about"
+            android:id="@+id/AboutFragment"
+            android:icon="@drawable/ic_info"/>
     </group>
 
 </menu>

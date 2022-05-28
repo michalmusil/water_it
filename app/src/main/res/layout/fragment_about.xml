@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.about.AboutFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/versionInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/aboutTitle"
+            style="@style/textViewTitle"
+            android:text="@string/about" />
+
+            <TextView
+                android:id="@+id/aboutText"
+                style="@style/longTextCaption"
+                android:text="@string/aboutMainText" />
+
+        <TextView
+            android:id="@+id/plantsTitle"
+            style="@style/textViewTitle2"
+            android:layout_marginTop="30dp"
+            android:text="@string/plants" />
+
+            <TextView
+                android:id="@+id/plantsText"
+                style="@style/longTextCaption"
+                android:text="@string/aboutPlantText" />
+
+        <TextView
+            android:id="@+id/roomsTitle"
+            style="@style/textViewTitle2"
+            android:layout_marginTop="30dp"
+            android:text="@string/rooms" />
+
+            <TextView
+                android:id="@+id/roomsText"
+                style="@style/longTextCaption"
+                android:text="@string/aboutRoomText" />
+
+        <TextView
+            android:id="@+id/alertsTitle"
+            style="@style/textViewTitle2"
+            android:layout_marginTop="30dp"
+            android:text="@string/alerts" />
+
+            <TextView
+                android:id="@+id/alertsText"
+                style="@style/longTextCaption"
+                android:text="@string/aboutAlertText" />
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

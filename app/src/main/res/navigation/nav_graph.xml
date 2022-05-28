@@ -164,4 +164,14 @@
 
     </fragment>
 
+
+
+    <fragment
+        android:id="@+id/AboutFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.about.AboutFragment"
+        android:label="@string/about_fragmentLabel"
+        tools:layout="@layout/fragment_about">
+
+    </fragment>
+
 </navigation>
