@@ -10,6 +10,8 @@
     <string name="action_no">No</string>
 
 
+    <string name="deletePlantConfirmationText">Are you sure you want to delete this plant?</string>
+    <string name="deleteRoomConfirmationText">Are you sure you want to delete this room?</string>
     <string name="version">Version</string>
     <string name="image">Image</string>
     <string name="pickImage">Pick an image</string>
@@ -35,6 +37,17 @@
         When you enter plants watering habits (days between watering - number of days between after the plant should be watered), you will get regular alerts on
         when to water each plant.
     </string>
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Home -->
     <string name="home_fragmentLabel">Home</string>

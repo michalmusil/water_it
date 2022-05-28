@@ -1,5 +1,6 @@
 package cz.mendelu.xmusil5.waterit.ui.rooms.roomdetail
 
+import android.app.AlertDialog
 import android.graphics.drawable.BitmapDrawable
 import android.view.*
 import androidx.core.content.ContextCompat
@@ -60,11 +61,7 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
                 return true
             }
             R.id.action_delete -> {
-                lifecycleScope.launch{
-                    viewModel.deleteRoom()
-                }.invokeOnCompletion {
-                    finishCurrentFragment()
-                }
+                onDeletePopup()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
@@ -88,6 +85,28 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
         } else{
             val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_room)
             binding.roomImageContainer.setImageDrawable(drawable)
+        }
+    }
+
+    private fun onDeletePopup(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage(getString(R.string.deleteRoomConfirmationText))
+            .setCancelable(false)
+            .setPositiveButton(R.string.action_yes) { dialog, id ->
+                delete()
+            }
+            .setNegativeButton(R.string.action_no) { dialog, id ->
+                dialog.dismiss()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(){
+        lifecycleScope.launch{
+            viewModel.deleteRoom()
+        }.invokeOnCompletion {
+            finishCurrentFragment()
         }
     }
 }

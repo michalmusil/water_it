@@ -1,5 +1,6 @@
 package cz.mendelu.xmusil5.waterit.ui.plants.plantdetail
 
+import android.app.AlertDialog
 import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.Menu
@@ -60,11 +61,7 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
                 return true
             }
             R.id.action_delete -> {
-                lifecycleScope.launch{
-                    viewModel.deletePlant()
-                }.invokeOnCompletion {
-                    finishCurrentFragment()
-                }
+                onDeletePopup()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
@@ -99,6 +96,30 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
         }
     }
 
-    
+    private fun onDeletePopup(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage(getString(R.string.deletePlantConfirmationText))
+            .setCancelable(false)
+            .setPositiveButton(R.string.action_yes) { dialog, id ->
+                lifecycleScope.launch{
+                    viewModel.deletePlant()
+                }.invokeOnCompletion {
+                    delete()
+                }
+            }
+            .setNegativeButton(R.string.action_no) { dialog, id ->
+                dialog.dismiss()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(){
+        lifecycleScope.launch{
+            viewModel.deletePlant()
+        }.invokeOnCompletion {
+            finishCurrentFragment()
+        }
+    }
 
 }
