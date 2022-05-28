@@ -224,7 +224,7 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             val drawable = BitmapDrawable(bitmap)
             binding.imagePicker.image = drawable
         } else{
-            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_local_florist_24)
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_plant)
             binding.imagePicker.image = drawable!!
         }
     }
@@ -235,7 +235,7 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             val drawable = BitmapDrawable(bitmap)
             binding.room.setImageDrawable(drawable)
         } else {
-            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_meeting_room_24)
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_room)
             binding.room.setImageDrawable(drawable!!)
         }
     }

@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:imagePickButtonText="@string/pickImage"
-                app:imagePickInitialPicture="@drawable/ic_baseline_local_florist_24"/>
+                app:imagePickInitialPicture="@drawable/ic_plant"/>
 
             <cz.mendelu.xmusil5.waterit.views.TextInputView
                 android:id="@+id/nameInput"
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:customLabel="@string/plantAttrs_room"
-                app:customImage="@drawable/ic_baseline_meeting_room_24"/>
+                app:customImage="@drawable/ic_room"/>
 
             <cz.mendelu.xmusil5.waterit.views.TextInputView
                 android:id="@+id/descriptionInput"

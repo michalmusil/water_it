@@ -11,4 +11,33 @@
         <item name="cornerSize">20dp</item>
     </style>
 
+    <style name="roundedImageLabel" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="plantListItemImage">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_width">65dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="srcCompat">@drawable/ic_plant</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="roomsListItemImage">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="srcCompat">@drawable/ic_room</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="floatingActionButtonAdd">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_marginEnd">@dimen/fab_margin</item>
+        <item name="android:layout_marginBottom">@dimen/fab_margin</item>
+        <item name="srcCompat">@drawable/ic_plus</item>
+    </style>
+
 </resources>

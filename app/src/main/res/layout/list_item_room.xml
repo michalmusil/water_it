@@ -8,12 +8,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/roomImageContainer"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        style="@style/roomsListItemImage"
         app:shapeAppearanceOverlay="@style/roundedImageListItem"
-        android:src="@drawable/ic_baseline_meeting_room_24"
-        android:scaleType="centerCrop"
-
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

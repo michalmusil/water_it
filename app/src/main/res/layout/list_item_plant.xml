@@ -6,12 +6,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/plantImageContainer"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="10dp"
+        style="@style/plantListItemImage"
         app:shapeAppearanceOverlay="@style/roundedImageListItem"
-        app:srcCompat="@drawable/ic_baseline_local_florist_24"
-        android:scaleType="centerCrop"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

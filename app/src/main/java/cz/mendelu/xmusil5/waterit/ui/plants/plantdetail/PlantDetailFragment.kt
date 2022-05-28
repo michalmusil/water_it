@@ -86,7 +86,7 @@ class PlantDetailFragment : BaseFragment<FragmentPlantDetailBinding, PlantDetail
             val drawable = BitmapDrawable(bitmap)
             binding.plantImageContainer.setImageDrawable(drawable)
         } else{
-            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_local_florist_24)
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_plant)
             binding.plantImageContainer.setImageDrawable(drawable)
         }
     }

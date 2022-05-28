@@ -45,7 +45,7 @@ class PlantsRecyclerViewAdapter(
             )
         } else{
             holder.binding.plantImageContainer.setImageDrawable(
-                ContextCompat.getDrawable(context, R.drawable.ic_baseline_local_florist_24))
+                ContextCompat.getDrawable(context, R.drawable.ic_plant))
         }
     }
 

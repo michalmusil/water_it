@@ -52,8 +52,8 @@
             android:id="@+id/image"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            app:shapeAppearanceOverlay="@style/roundedImageListItem"
-            android:src="@drawable/ic_baseline_meeting_room_24"
+            app:shapeAppearanceOverlay="@style/roundedImageLabel"
+            android:src="@drawable/ic_room"
             android:scaleType="centerCrop"
 
             app:layout_constraintBottom_toBottomOf="parent"

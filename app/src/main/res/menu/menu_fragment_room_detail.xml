@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_show_plants"
         android:title=""
-        android:icon="@drawable/ic_baseline_local_florist_24"
+        android:icon="@drawable/ic_plant"
         app:showAsAction="ifRoom"/>
 
     <item

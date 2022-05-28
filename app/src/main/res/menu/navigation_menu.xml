@@ -5,15 +5,15 @@
         <item
             android:title="@string/plants"
             android:id="@+id/PlantsListFragment"
-            android:icon="@drawable/ic_baseline_local_florist_24"/>
+            android:icon="@drawable/ic_plant"/>
 
         <item android:title="@string/rooms"
             android:id="@+id/RoomsListFragment"
-            android:icon="@drawable/ic_baseline_meeting_room_24"/>
+            android:icon="@drawable/ic_room"/>
 
         <item android:title="@string/alerts"
             android:id="@+id/AlertsFragment"
-            android:icon="@drawable/ic_baseline_alert_outline"/>
+            android:icon="@drawable/ic_watering_can"/>
     </group>
 
 </menu>

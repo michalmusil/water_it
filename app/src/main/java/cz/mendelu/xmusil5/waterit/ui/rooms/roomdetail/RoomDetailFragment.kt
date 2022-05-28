@@ -78,7 +78,7 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
             val drawable = BitmapDrawable(bitmap)
             binding.roomImageContainer.setImageDrawable(drawable)
         } else{
-            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_meeting_room_24)
+            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_room)
             binding.roomImageContainer.setImageDrawable(drawable)
         }
     }
