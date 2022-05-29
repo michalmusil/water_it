@@ -50,6 +50,14 @@ class CustomInputView @JvmOverloads constructor(
         attributeValues.recycle()
     }
 
+    fun setCancelButtonVisible(visible: Boolean){
+        if (visible) {
+            binding.cancelButton.visibility = VISIBLE
+        } else{
+            binding.cancelButton.visibility = GONE
+        }
+    }
+
     fun setOnCancelButtonListener(listener: View.OnClickListener){
         binding.cancelButton.setOnClickListener(listener)
     }

@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             R.id.PlantsListFragment,
             R.id.RoomsListFragment,
             R.id.AlertsFragment,
+            R.id.SettingsFragment,
             R.id.AboutFragment
         ), drawerLayout)
 

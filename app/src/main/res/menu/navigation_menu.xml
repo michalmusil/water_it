@@ -20,6 +20,10 @@
             android:id="@+id/AlertsFragment"
             android:icon="@drawable/ic_watering_can"/>
 
+        <item android:title="@string/settings"
+            android:id="@+id/SettingsFragment"
+            android:icon="@drawable/ic_settings"/>
+
         <item android:title="@string/about"
             android:id="@+id/AboutFragment"
             android:icon="@drawable/ic_info"/>

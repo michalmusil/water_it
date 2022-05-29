@@ -171,7 +171,13 @@
         android:name="cz.mendelu.xmusil5.waterit.ui.about.AboutFragment"
         android:label="@string/about_fragmentLabel"
         tools:layout="@layout/fragment_about">
+    </fragment>
 
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="cz.mendelu.xmusil5.waterit.ui.settings.SettingsFragment"
+        android:label="@string/settings_fragmentLabel"
+        tools:layout="@layout/fragment_settings">
     </fragment>
 
 </navigation>

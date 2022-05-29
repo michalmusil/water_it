@@ -11,7 +11,7 @@ class WateritApplication: Application() {
         super.onCreate()
         startKoin{
             androidContext(applicationContext)
-            modules(databaseModule, daoModule, repositoryModule, viewModelModule, alertModule)
+            modules(databaseModule, daoModule, repositoryModule, viewModelModule, alertModule, utilsModule)
         }
     }
 }

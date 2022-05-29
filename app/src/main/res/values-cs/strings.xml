@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Language -->
+    <string name="language">Jazyk</string>
+    <string name="language_en">Anglicky</string>
+    <string name="language_cs">Česky</string>
+
+
+    <!-- General -->
+    <string name="app_name">Water.it</string>
+    <string name="action_save">Uložit</string>
+    <string name="action_edit">Upravit</string>
+    <string name="action_delete">Smazat</string>
+    <string name="action_show_plants">Rostliny</string>
+    <string name="action_yes">Ano</string>
+    <string name="action_no">Ne</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Zrušit</string>
+
+    <string name="setLanguageTitle">Vyber jazyk</string>
+    <string name="deletePlantConfirmationText">Opravdu chceš odstranit tuto rostlinu?</string>
+    <string name="deleteRoomConfirmationText">Opravdu chceš odstranit tuto místnost?</string>
+
+    <string name="version">Verze</string>
+    <string name="image">Fotka</string>
+    <string name="pickImage">Vyber fotku</string>
+    <string name="home">Přehled</string>
+    <string name="plants">Rostliny</string>
+    <string name="rooms">Místnosti</string>
+    <string name="alerts">Upozornění</string>
+    <string name="settings">Nastavení</string>
+
+    <string name="recentlyPlantedPlants">Nedávno zasazené</string>
+    <string name="about">Informace</string>
+    <string name="aboutMainText">
+        Water.it je aplikace, která má pomoci všem lidem co si rádí zkrášlí svůj domov trochou zeleně.
+        Pomůže ti udržet si přehled o svých rostlinách a připomene ti vždy když příjde čas na zalévání.
+    </string>
+    <string name="aboutPlantText">
+        Své rostliny můžeš spravovat v záložce Rostliny. Pro každou rostlinu můžeš evidovat důležité informace jako druh, různé datumy, čas zalévání atp.
+    </string>
+    <string name="aboutRoomText">
+        Své rostliny můžeš dále organizovat do místnotí tak, aby odpovídali rozložení tvého domova.
+    </string>
+    <string name="aboutAlertText">
+        Když u rostliny zadáš pravidelnost zalévání (v počtu dní mezi jednotlivými zalitími), budeš dostávat pravidelná upozornění vždy když příjde čas danou
+        rostlinu zalít.
+    </string>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Home -->
+    <string name="home_fragmentLabel">Přehled</string>
+
+    <!-- About -->
+    <string name="about_fragmentLabel">Informace</string>
+
+    <!-- Settings -->
+    <string name="settings_fragmentLabel">Nastavení</string>
+
+
+    <!-- Plants attributes -->
+    <string name="plantAttrs_name">Název</string>
+    <string name="plantAttrs_species">Druh</string>
+    <string name="plantAttrs_room">Místnost</string>
+    <string name="plantAttrs_datePlanted">Datum zasazení</string>
+    <string name="plantAttrs_lastWatered">Naposledy zalito</string>
+    <string name="plantAttrs_daysBetweenWatering">Pravidelnost zalévání (dny)</string>
+    <string name="plantAttrs_description">Popis</string>
+
+    <!-- Plants list -->
+    <string name="plantsList_fragmentLabel">Rostliny</string>
+
+    <!-- Plant detail -->
+    <string name="plantDetail_fragmentLabel">Detail rostliny</string>
+
+    <!-- Add plant -->
+    <string name="addPlant_fragmentLabel">Přidat rostlinu</string>
+    <string name="addPlant_assignRoom">Přiřadit místnost</string>
+
+    <string name="addPlant_error_mustEnterPlantName">Musíš zadat název rostliny</string>
+    <string name="addPlant_error_mustEnterPlantSpecies">Musíš zadat druh rostliny</string>
+
+    <!-- Plants contextual -->
+    <string name="plantsContextual_fragmentLabel">Rostliny pokoje</string>
+
+
+    <!-- Rooms attributes -->
+    <string name="roomAttrs_name">Název</string>
+    <string name="roomAttrs_longitude">Longituda</string>
+    <string name="roomAttrs_latitude">Latituda</string>
+    <string name="roomAttrs_description">Popis</string>
+
+
+    <!-- Rooms list -->
+    <string name="roomsList_fragmentLabel">Místnosti</string>
+
+    <!-- Room detail -->
+    <string name="roomDetail_fragmentLabel">Detail místnosti</string>
+
+    <!-- Add room -->
+    <string name="addRoom_fragmentLabel">Přidat místnost</string>
+    <string name="addRoom_error_mustEnterRoomName">Musíš zadat název místnosti</string>
+
+
+    <!-- Alerts attributes -->
+    <string name="supposedToWater">Zalít:</string>
+    <!-- Alerts list -->
+    <string name="alertsList_fragmentLabel">Upozornění</string>
+
+</resources>

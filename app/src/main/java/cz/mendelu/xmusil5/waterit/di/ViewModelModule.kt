@@ -10,6 +10,7 @@ import cz.mendelu.xmusil5.waterit.ui.plants.plantscontextual.PlantsContextualVie
 import cz.mendelu.xmusil5.waterit.ui.rooms.addoreditroom.AddOrEditRoomViewModel
 import cz.mendelu.xmusil5.waterit.ui.rooms.roomdetail.RoomDetailViewModel
 import cz.mendelu.xmusil5.waterit.ui.rooms.roomslist.RoomsListViewModel
+import cz.mendelu.xmusil5.waterit.ui.settings.SettingsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -49,6 +50,11 @@ val viewModelModule = module {
     // Alert ViewModels
     viewModel {
         AlertsViewModel(get())
+    }
+
+    // Settings ViewModels
+    viewModel {
+        SettingsViewModel(get())
     }
 
 
