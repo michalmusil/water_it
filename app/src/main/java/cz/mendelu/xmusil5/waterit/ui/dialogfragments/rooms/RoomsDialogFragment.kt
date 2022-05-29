@@ -14,6 +14,7 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.databinding.DialogFragmentRoomsBinding
 import cz.mendelu.xmusil5.waterit.databinding.ListItemRoomBinding
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
+import cz.mendelu.xmusil5.waterit.utils.RecyclerViewUtils
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class RoomsDialogFragment(private val roomOnCLickListener: RoomOnClickListener): DialogFragment() {

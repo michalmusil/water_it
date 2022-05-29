@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.ListItemPlantBinding
+import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 
 class PlantsRecyclerViewAdapter(
@@ -36,6 +37,14 @@ class PlantsRecyclerViewAdapter(
         holder.binding.root.setOnClickListener(View.OnClickListener {
             this.eventListener.onItemClicked(bindedPlant)
         })
+
+        //Displaying the status bar of item
+        holder.binding.wateringStatus.visibility = View.INVISIBLE
+        if (bindedPlant.lastWatered != null && bindedPlant.daysBetweenWatering != null){
+            val date = DateUtils.getDate(bindedPlant.lastWatered!!)
+            if (DateUtils.daysBetween(date, DateUtils.getCurrentDate()) > bindedPlant.daysBetweenWatering!!)
+                holder.binding.wateringStatus.visibility = View.VISIBLE
+        }
 
         holder.binding.plantName.text = bindedPlant.name
         holder.binding.plantSpecies.text = bindedPlant.species

@@ -7,9 +7,9 @@
     <application
         android:name=".WateritApplication"
         android:allowBackup="false"
-        android:icon="@drawable/water_it_icon"
+        android:icon="@mipmap/ic_launcher_water_it"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/water_it_icon"
+        android:roundIcon="@mipmap/ic_launcher_water_it_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Waterit">
         <activity

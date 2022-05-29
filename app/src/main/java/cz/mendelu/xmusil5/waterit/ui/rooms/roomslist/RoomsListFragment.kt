@@ -14,6 +14,7 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.databinding.FragmentRoomsListBinding
 import cz.mendelu.xmusil5.waterit.databinding.ListItemRoomBinding
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
+import cz.mendelu.xmusil5.waterit.utils.RecyclerViewUtils
 
 class RoomsListFragment : BaseFragment<FragmentRoomsListBinding, RoomsListViewModel>(
     RoomsListViewModel::class) {
@@ -22,7 +23,8 @@ class RoomsListFragment : BaseFragment<FragmentRoomsListBinding, RoomsListViewMo
         get() = FragmentRoomsListBinding::inflate
 
     override fun initViews() {
-        viewModel.layoutManager = GridLayoutManager(requireContext(), 3)
+        viewModel.layoutManager = GridLayoutManager(requireContext(),
+        RecyclerViewUtils.columnCountRooms(requireActivity().resources.displayMetrics))
         viewModel.roomsAdapter = RoomsRecyclerViewAdapter()
 
         val rw = this.binding.roomsRecyclerView

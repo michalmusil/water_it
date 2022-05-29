@@ -12,6 +12,7 @@ import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.databinding.FragmentAlertsBinding
 import cz.mendelu.xmusil5.waterit.databinding.ListItemAlertBinding
 import cz.mendelu.xmusil5.waterit.rwadapters.AlertsRecyclerViewAdapter
+import cz.mendelu.xmusil5.waterit.utils.RecyclerViewUtils
 import kotlinx.coroutines.launch
 
 
@@ -24,7 +25,8 @@ class AlertsFragment : BaseFragment<FragmentAlertsBinding, AlertsViewModel>(Aler
         lifecycleScope.launch {
             viewModel.loadAlerts()
         }.invokeOnCompletion {
-            viewModel.layoutManager = GridLayoutManager(requireContext(), 2)
+            viewModel.layoutManager = GridLayoutManager(requireContext(),
+                RecyclerViewUtils.columnCountAlerts(requireActivity().resources.displayMetrics))
             viewModel.alertsAdapter = AlertsRecyclerViewAdapter(viewModel.alerts)
 
             val rw = binding.alertsRecyclerView
@@ -40,6 +42,9 @@ class AlertsFragment : BaseFragment<FragmentAlertsBinding, AlertsViewModel>(Aler
         viewModel.updateCheckedAlerts()
     }
 
-
+    override fun onPause() {
+        viewModel.updateCheckedAlerts()
+        super.onPause()
+    }
 
 }

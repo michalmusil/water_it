@@ -14,8 +14,9 @@
     <color name="primaryBackgroundColor">#2D343C</color>
     <color name="primaryTextColor">#FFFFFF</color>
 
-    <color name="alertSevereColor">#BE0000</color>
+    <color name="alertSevereColor">#832A2A</color>
     <color name="alertCheckedColor">#37FF00</color>
+
 
 
 </resources>

@@ -1,5 +1,6 @@
 package cz.mendelu.xmusil5.waterit.ui.plants.addoreditplant
 
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
@@ -31,4 +32,5 @@ class AddOrEditPlantViewModel(private val repository: IPlantsLocalRepository): V
             repository.update(plantWithRoom.plant)
         }
     }
+
 }

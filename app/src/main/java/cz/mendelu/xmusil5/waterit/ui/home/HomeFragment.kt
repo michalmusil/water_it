@@ -1,6 +1,7 @@
 package cz.mendelu.xmusil5.waterit.ui.home
 
 import android.view.LayoutInflater
+import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,6 +11,7 @@ import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.databinding.FragmentHomeBinding
 import cz.mendelu.xmusil5.waterit.rwadapters.AlertsRecyclerViewAdapter
 import cz.mendelu.xmusil5.waterit.rwadapters.PlantsRecyclerViewAdapter
+import cz.mendelu.xmusil5.waterit.utils.RecyclerViewUtils
 import kotlinx.coroutines.launch
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(HomeViewModel::class) {
@@ -21,6 +23,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(HomeViewMo
             viewModel.loadAlerts()
             viewModel.loadMostRecentlyPlanted()
         }.invokeOnCompletion {
+            if (viewModel.alerts.size < 1){
+                binding.alertsTitle.visibility = View.GONE
+            }
+            if (viewModel.plantsList.size < 1){
+                binding.plantsTitle.visibility = View.GONE
+            }
             setupAlertsRw()
             setupPlantsRw()
         }
@@ -34,8 +42,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(HomeViewMo
         viewModel.updateCheckedAlerts()
     }
 
+    override fun onPause() {
+        viewModel.updateCheckedAlerts()
+        super.onPause()
+    }
+
     private fun setupAlertsRw(){
-        viewModel.alertsLayoutManager = GridLayoutManager(requireContext(), 2)
+        viewModel.alertsLayoutManager = GridLayoutManager(requireContext(),
+            RecyclerViewUtils.columnCountAlerts(requireActivity().resources.displayMetrics))
         viewModel.alertsAdapter = AlertsRecyclerViewAdapter(viewModel.alerts)
 
         val rw = binding.alertsRecyclerView

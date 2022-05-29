@@ -21,7 +21,6 @@ import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.database.entities.DbRoom
 import cz.mendelu.xmusil5.waterit.databinding.FragmentAddOrEditPlantBinding
 import cz.mendelu.xmusil5.waterit.ui.dialogfragments.rooms.RoomsDialogFragment
-import cz.mendelu.xmusil5.waterit.ui.plants.plantdetail.PlantDetailFragmentDirections
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import cz.mendelu.xmusil5.waterit.utils.PictureUtils
 import cz.mendelu.xmusil5.waterit.views.DatePickerView
@@ -77,6 +76,12 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
 
 
     private fun fillLayout(){
+        if (viewModel.plantId < 0){
+            binding.lastWatered.setVisible(false)
+        } else{
+            binding.lastWatered.setVisible(true)
+        }
+
         binding.nameInput.text = viewModel.plantWithRoom.plant.name
         binding.speciesInput.text = viewModel.plantWithRoom.plant.species
 
@@ -239,4 +244,6 @@ class AddOrEditPlantFragment : BaseFragment<FragmentAddOrEditPlantBinding, AddOr
             binding.room.setImageDrawable(drawable!!)
         }
     }
+
+
 }

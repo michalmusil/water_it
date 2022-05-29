@@ -39,9 +39,8 @@
         android:layout_height="20dp"
         android:background="@drawable/ic_baseline_cancel_24"
         app:backgroundTint="@color/secondaryColor"
-        android:layout_marginStart="10dp"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/imageContainer"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

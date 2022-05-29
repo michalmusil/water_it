@@ -81,6 +81,14 @@ class DatePickerView @JvmOverloads constructor(
         this.onDateChangedListener = onDateChangedListener
     }
 
+    fun setVisible(visible: Boolean){
+        if (visible){
+            binding.root.visibility = VISIBLE
+        } else {
+            binding.root.visibility = GONE
+        }
+    }
+
 
 
 
