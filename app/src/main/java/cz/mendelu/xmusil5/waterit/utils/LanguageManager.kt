@@ -20,7 +20,14 @@ class LanguageManager(private val context: Context) {
     }
 
     fun getLanguagePreference(): AppLanguage{
-        val code = sharedPreferences.getString("lang", AppLanguage.ENGLISH.languageCode)
+        val default = Locale.getDefault().language
+        var code: String?
+        if (default == "cs"){
+            code = sharedPreferences.getString("lang", default)
+        } else{
+            code = sharedPreferences.getString("lang", "en")
+        }
+
         return AppLanguage.appLanguageByCode(code!!)
     }
 

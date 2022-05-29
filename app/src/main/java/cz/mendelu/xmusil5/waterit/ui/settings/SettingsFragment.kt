@@ -9,6 +9,7 @@ import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.architecture.BaseFragment
 import cz.mendelu.xmusil5.waterit.databinding.FragmentSettingsBinding
 import cz.mendelu.xmusil5.waterit.utils.AppLanguage
+import cz.mendelu.xmusil5.waterit.utils.LanguageManager
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding, SettingsViewModel>(SettingsViewModel::class) {
 
@@ -17,6 +18,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding, SettingsViewModel
         get() = FragmentSettingsBinding::inflate
 
     override fun initViews() {
+        viewModel.languageManager = LanguageManager(requireActivity())
         viewModel.loadLanguageFromPreferences()
         fillLayout()
         setInteractionListeners()
@@ -53,8 +55,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding, SettingsViewModel
         }
 
         val builder = AlertDialog.Builder(requireContext())
-        builder.setMessage(getString(R.string.setLanguageTitle))
-            .setSingleChoiceItems(languages, checkedItem, object : DialogInterface.OnClickListener{
+        builder.setSingleChoiceItems(languages, checkedItem, object : DialogInterface.OnClickListener{
                 override fun onClick(p0: DialogInterface?, p1: Int) {
                     val selectedLanguage = languages[p1]
                     when(selectedLanguage){

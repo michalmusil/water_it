@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import cz.mendelu.xmusil5.waterit.utils.AppLanguage
 import cz.mendelu.xmusil5.waterit.utils.LanguageManager
 
-class SettingsViewModel(private val languageManager: LanguageManager): ViewModel() {
-
+class SettingsViewModel: ViewModel() {
+    lateinit var languageManager: LanguageManager
     lateinit var language: AppLanguage
 
 

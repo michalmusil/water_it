@@ -54,7 +54,7 @@ val viewModelModule = module {
 
     // Settings ViewModels
     viewModel {
-        SettingsViewModel(get())
+        SettingsViewModel()
     }
 
 

@@ -7,11 +7,13 @@ import android.os.Handler
 import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.databinding.ActivityMainBinding
 import cz.mendelu.xmusil5.waterit.databinding.ActivitySplashSceenBinding
+import cz.mendelu.xmusil5.waterit.utils.LanguageManager
 
 class SplashSceenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashSceenBinding
     private lateinit var mHandler: Handler
+    private lateinit var languageManager: LanguageManager
 
     companion object{
         val SPLASH_SCREEN_TIMEOUT: Long = 3000L
@@ -21,6 +23,9 @@ class SplashSceenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashSceenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        languageManager = LanguageManager(this)
+        languageManager.updateAppLanguage(languageManager.getLanguagePreference())
 
         mHandler = Handler()
         mHandler.postDelayed(Runnable {
