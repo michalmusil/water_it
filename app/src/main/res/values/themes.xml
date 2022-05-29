@@ -26,5 +26,8 @@
 
     <style name="Theme.Waterit.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Waterit.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Waterit.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/primaryColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
 </resources>

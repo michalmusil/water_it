@@ -87,8 +87,6 @@
 
     <!-- Rooms attributes -->
     <string name="roomAttrs_name">Name</string>
-    <string name="roomAttrs_longitude">Longitude</string>
-    <string name="roomAttrs_latitude">Latitude</string>
     <string name="roomAttrs_description">Description</string>
 
 
@@ -107,7 +105,5 @@
     <string name="supposedToWater">Water:</string>
     <!-- Alerts list -->
     <string name="alertsList_fragmentLabel">Alerts</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

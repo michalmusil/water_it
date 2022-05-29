@@ -31,7 +31,7 @@
     <string name="alerts">Upozornění</string>
     <string name="settings">Nastavení</string>
 
-    <string name="recentlyPlantedPlants">Nedávno zasazené</string>
+    <string name="recentlyPlantedPlants">Naposled zasazené</string>
     <string name="about">Informace</string>
     <string name="aboutMainText">
         Water.it je aplikace, která má pomoci všem lidem co si rádí zkrášlí svůj domov trochou zeleně.
@@ -97,8 +97,6 @@
 
     <!-- Rooms attributes -->
     <string name="roomAttrs_name">Název</string>
-    <string name="roomAttrs_longitude">Longituda</string>
-    <string name="roomAttrs_latitude">Latituda</string>
     <string name="roomAttrs_description">Popis</string>
 
 

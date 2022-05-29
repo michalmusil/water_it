@@ -16,12 +16,6 @@ data class DbRoom(
     @ColumnInfo(name = "picture")
     var picture: ByteArray? = null
 
-    @ColumnInfo(name = "latitude")
-    var latitude: Double? = null
-
-    @ColumnInfo(name = "longitude")
-    var longitude: Double? = null
-
     @ColumnInfo(name = "description")
     var description: String? = null
 }

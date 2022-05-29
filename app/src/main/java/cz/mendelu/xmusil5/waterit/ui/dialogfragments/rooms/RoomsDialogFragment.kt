@@ -107,8 +107,6 @@ class RoomsDialogFragment(private val roomOnCLickListener: RoomOnClickListener):
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
             return oldList[oldItemPosition].name == newList[newItemPosition].name
-                    && oldList[oldItemPosition].latitude == newList[newItemPosition].latitude
-                    && oldList[oldItemPosition].longitude == newList[newItemPosition].longitude
                     && oldList[oldItemPosition].picture.contentEquals(newList[newItemPosition].picture)
                     && oldList[oldItemPosition].description == newList[newItemPosition].description
         }

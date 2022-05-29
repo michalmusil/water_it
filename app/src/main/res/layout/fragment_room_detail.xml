@@ -43,18 +43,6 @@
                 app:textLabel="@string/roomAttrs_name" />
 
             <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-                android:id="@+id/longitude"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:textLabel="@string/roomAttrs_longitude" />
-
-            <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
-                android:id="@+id/latitude"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:textLabel="@string/roomAttrs_latitude" />
-
-            <cz.mendelu.xmusil5.waterit.views.AttributeWithLabelView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

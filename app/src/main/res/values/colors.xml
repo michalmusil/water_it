@@ -7,14 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#7A7A7A</color>
 
     <color name="primaryColor">#4B4E6D</color>
     <color name="secondaryColor">#84DCDC</color>
     <color name="primaryBackgroundColor">#2D343C</color>
     <color name="primaryTextColor">#FFFFFF</color>
 
-    <color name="alertSevereColor">#8F3434</color>
-    <color name="alertCheckedColor">#3FA822</color>
+    <color name="alertSevereColor">#BE0000</color>
+    <color name="alertCheckedColor">#37FF00</color>
 
 
 </resources>

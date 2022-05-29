@@ -49,7 +49,7 @@
         android:maxLines="1"
         android:ellipsize="end"
         android:text="@string/supposedToWater"
-        android:textColor="@color/secondaryColor"
+        android:textColor="@color/primaryTextColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +89,12 @@
         android:id="@+id/checked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:button="@drawable/custom_checkbox"
+        android:gravity="center"
+        android:buttonTint="@android:color/transparent"
+        android:buttonTintMode="add"
 
         app:layout_constraintTop_toBottomOf="@id/supposedToWaterDay"
         app:layout_constraintStart_toStartOf="parent"

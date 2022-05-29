@@ -70,8 +70,6 @@ class RoomDetailFragment : BaseFragment<FragmentRoomDetailBinding, RoomDetailVie
 
     private fun fillLayout(){
         binding.name.attributeText = viewModel.room.name
-        viewModel.room.longitude?.let { binding.longitude.attributeText = viewModel.room.longitude.toString() }
-        viewModel.room.latitude?.let { binding.latitude.attributeText = viewModel.room.latitude.toString() }
         viewModel.room.description?.let { binding.description.attributeText = viewModel.room.description.toString() }
 
         setImageView()

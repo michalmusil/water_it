@@ -24,8 +24,7 @@ abstract class WateritDatabase: RoomDatabase() {
                         INSTANCE = Room.databaseBuilder(
                             context.applicationContext,
                             WateritDatabase::class.java, "waterit_database"
-                        ).fallbackToDestructiveMigration()// REMOVE IN PRODUCTION
-                            .build()
+                        ).build()
                     }
                 }
             }
