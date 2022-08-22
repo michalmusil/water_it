@@ -48,6 +48,11 @@
         when to water each plant.
     </string>
 
+    <!-- Notifications -->
+    <string name="notificationWateringTitle">Your plants need watering</string>
+    <string name="notificationWateringContent">plants are waiting to be watered</string>
+
+
 
     <!-- Home -->
     <string name="home_fragmentLabel">Home</string>

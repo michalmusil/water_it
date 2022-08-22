@@ -49,8 +49,9 @@
     </string>
 
 
-
-
+    <!-- Notifications -->
+    <string name="notificationWateringTitle">Vaše rostliny potřebují zalít</string>
+    <string name="notificationWateringContent">rostlin/y čekají na zalití</string>
 
 
 

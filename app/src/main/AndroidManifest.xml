@@ -3,6 +3,7 @@
     package="cz.mendelu.xmusil5.waterit">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:name=".WateritApplication"
@@ -12,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_water_it_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Waterit">
+
+        <receiver android:name=".notifications.NotificationReceiver"
+            android:enabled="true"/>
+
         <activity
             android:name=".activities.SplashSceenActivity"
             android:exported="true"
