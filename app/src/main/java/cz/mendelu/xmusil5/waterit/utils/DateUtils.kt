@@ -56,6 +56,16 @@ class DateUtils {
         }
 
         fun daysBetween(startDate: Calendar, endDate: Calendar): Long {
+            startDate.set(Calendar.HOUR, 0)
+            startDate.set(Calendar.MINUTE, 0)
+            startDate.set(Calendar.SECOND, 0)
+            startDate.set(Calendar.MILLISECOND, 0)
+
+            endDate.set(Calendar.HOUR, 0)
+            endDate.set(Calendar.MINUTE, 0)
+            endDate.set(Calendar.SECOND, 0)
+            endDate.set(Calendar.MILLISECOND, 0)
+
             val end = endDate.timeInMillis
             val start = startDate.timeInMillis
             return TimeUnit.MILLISECONDS.toDays(end - start)

@@ -4,14 +4,17 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.util.Log
 import cz.mendelu.xmusil5.waterit.R
 import cz.mendelu.xmusil5.waterit.alerts.models.AlertModel
+import cz.mendelu.xmusil5.waterit.database.entities.DbPlant
 import cz.mendelu.xmusil5.waterit.database.repositories.plants.IPlantsLocalRepository
 import cz.mendelu.xmusil5.waterit.notifications.NotificationReceiver
 import cz.mendelu.xmusil5.waterit.utils.DateUtils
 import cz.mendelu.xmusil5.waterit.utils.NotificationUtils
 import java.lang.Exception
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class AlertManager(private val plantRepository: IPlantsLocalRepository, private val context: Context) {
@@ -45,29 +48,33 @@ class AlertManager(private val plantRepository: IPlantsLocalRepository, private 
         try {
             cancelPendingWateringNotifications()
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val wateringAlerts = getAllAlerts()
-            if (wateringAlerts.size > 0){
-                val intent = createWateringNotificationIntent(wateringAlerts.size)
+            val plants = plantRepository.getAllStatic()
+            val notificationTime = getWateringNotificationTiming(plants)
+            if (notificationTime != null){
+
+                val timeInString = notificationTime.time.toString()
+                print(timeInString)
+
+
+                val intent = createWateringNotificationIntent()
                 val pendingIntent = PendingIntent.getBroadcast(
                     context, NotificationUtils.notifiationWaterPlantsRequestCode, intent,
                     PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
                 )
-                val pendingTime = getWateringNotificationTiming()
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, pendingTime.timeInMillis,
-                    AlarmManager.INTERVAL_DAY,pendingIntent)
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
+                    notificationTime.timeInMillis, pendingIntent)
             }
         } catch (exception: Exception){
             Log.e("Notification", "Could not schedule a notification for plant watering")
         }
     }
 
-    private fun createWateringNotificationIntent(numberOfPlantsToWater: Int): Intent{
+    private fun createWateringNotificationIntent(): Intent{
         val intent = Intent(context, NotificationReceiver::class.java)
 
         intent.putExtra(NotificationUtils.notificationIdExtraKey, DateUtils.getCurrentUnixTime())
         intent.putExtra(NotificationUtils.notificationTitleExtraKey, context.getString(R.string.notificationWateringTitle))
-        intent.putExtra(NotificationUtils.notificationMessageExtraKey,
-            "${numberOfPlantsToWater} ${context.getString(R.string.notificationWateringContent)}")
+        intent.putExtra(NotificationUtils.notificationMessageExtraKey, context.getString(R.string.notificationWateringContent))
 
         return intent
     }
@@ -81,9 +88,30 @@ class AlertManager(private val plantRepository: IPlantsLocalRepository, private 
         alarmManager.cancel(pendingIntent)
     }
 
-    private fun getWateringNotificationTiming(): Calendar{
-        val time = DateUtils.getCurrentDate()
-        time.add(Calendar.SECOND, NotificationUtils.notificationWaterPlantsMinuteDelay)
-        return time
+    private fun getWateringNotificationTiming(plants: List<DbPlant>): Calendar?{
+        var mostPressingTime: Calendar? = null
+        for (plant in plants){
+            if (plant.lastWatered != null && plant.daysBetweenWatering != null){
+                var timeToWater = DateUtils.getDate(plant.lastWatered!!)
+                timeToWater.add(Calendar.DAY_OF_WEEK, plant.daysBetweenWatering!!)
+                if (mostPressingTime == null){
+                    mostPressingTime = timeToWater
+                } else if (timeToWater < mostPressingTime){
+                    mostPressingTime = timeToWater
+                }
+            }
+        }
+        if (mostPressingTime != null && DateUtils.daysBetween(DateUtils.getCurrentDate(), mostPressingTime) <= 0){
+            var notificationTime = DateUtils.getCurrentDate()
+            notificationTime.add(Calendar.HOUR, 1)
+            return notificationTime
+        }
+        if (mostPressingTime != null){
+            mostPressingTime.set(Calendar.HOUR, 9)
+            mostPressingTime.set(Calendar.MINUTE, 0)
+            mostPressingTime.set(Calendar.SECOND, 0)
+        }
+        return mostPressingTime
     }
+
 }

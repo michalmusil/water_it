@@ -50,8 +50,8 @@
 
 
     <!-- Notifications -->
-    <string name="notificationWateringTitle">Vaše rostliny potřebují zalít</string>
-    <string name="notificationWateringContent">rostlin/y čekají na zalití</string>
+    <string name="notificationWateringTitle">Čas zalévat</string>
+    <string name="notificationWateringContent">Některé vaše rostliny dnes potřebují zalít</string>
 
 
 

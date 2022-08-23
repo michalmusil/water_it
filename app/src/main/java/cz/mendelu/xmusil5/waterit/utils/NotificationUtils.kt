@@ -17,6 +17,7 @@ object NotificationUtils {
 
     const val notificationWaterPlantsMinuteDelay = 10
     const val notifiationWaterPlantsRequestCode = 9180532
+    const val openApplicationRequestCode = 1597560
 
 
 }

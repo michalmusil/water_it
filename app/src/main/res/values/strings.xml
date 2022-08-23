@@ -49,8 +49,8 @@
     </string>
 
     <!-- Notifications -->
-    <string name="notificationWateringTitle">Your plants need watering</string>
-    <string name="notificationWateringContent">plants are waiting to be watered</string>
+    <string name="notificationWateringTitle">Time for water</string>
+    <string name="notificationWateringContent">Some of your plants need watering today</string>
 
 
 
